@@ -1,0 +1,28 @@
+type Mutation {
+    """
+    login
+    """
+    login(input: LoginInput!): AuthPayload
+
+    """
+    Create a new user and company
+    """
+    signup(input: SignupInput!): AuthPayload
+
+    """
+    update info about yourself
+    """
+    updateMe(input: ChangeMeInput!): ChangeMePayload
+
+
+    """
+    Send a chat message
+    """
+    sendChat(input: SendChatInput!): ChatMessage
+
+    """
+    buy or sell shares of a company
+    """
+    trade(input:TradeInput!):TradePayload
+
+}

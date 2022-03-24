@@ -1,0 +1,192 @@
+"""
+Create a company
+"""
+input CreateCompanyInput {
+    name: String!
+    symbol: String!
+    description: String!
+    type: String!
+}
+
+"""
+Read commpaines
+"""
+input GetCompanyInput {
+    """
+    Load a single company
+    """
+    companyID: ID
+    """
+    Load many companines
+    """
+    companyIDs: [ID!]
+}
+
+input GetShareInput {
+    """
+    Company the share belongs too
+    """
+    companyID: ID!
+    """
+    UserID of the holder
+    """
+    holderID: ID!
+    """
+    Where in the transaction history should start to scan
+    defualt: time.Now()
+    """
+    transactionStart: Time
+    """
+    Limit of the number of transcations to return
+    default: 10
+    """
+    transactionLimit: Int
+}
+
+"""
+Buy or sell a stock
+The company must have open shares, and the user must be able to afford the cost
+"""
+input TradeInput {
+    """
+    The ID of the company to buy/sell a stock of
+    """
+    companyID: ID!
+    """
+    the amount of shares the user wants to buy/sell
+    positive amount will result in a buy
+    negitive amount will result in a sell
+    """
+    amount: Int!
+    """
+    the price the user currently thinks the share is at
+    must be equal to the current company.value
+    """
+    price: Int!
+}
+
+"""
+result of a trade
+"""
+type TradePayload {
+    """
+    Was the trade a success or not
+    """
+    Success: Boolean
+}
+
+"""
+A company that users can buy/sell parts of
+"""
+type Company {
+    """
+    unique id for this company
+    """
+    id: String!
+
+    """
+    displany name
+    """
+    name: String!
+
+    """
+    company stock symbol
+    """
+    symbol: String!
+
+    """
+    the owner of the company
+    """
+    owner: User
+
+    """
+    when was the company created at
+    """
+    createdAt: Time!
+    """
+    company long description
+    """
+    description: String!
+    """
+    shares that are owned of this company
+    comapny -> user relation
+    """
+    shares: [Share!]
+    """
+    current value of the shares
+    """
+    value: Int!
+
+    """
+    the historcal values of the company
+    currently not working
+    """
+    histroy: [ValueHistory!]
+
+    """
+    the stock transcations of the company
+    """
+    transactions: [Transaction!]
+
+    """
+    the amount of current open shares on the market
+    """
+    openShares: Int
+
+}
+
+"""
+historcal value of a company
+"""
+type ValueHistory {
+    value: Int
+    time: Time
+}
+
+"""
+A peice of a company that a user can own
+"""
+type Share {
+    """
+    the amount of shares the user owns
+    """
+    count: Int!
+    """
+    the company the share relates too
+    """
+    company: Company!
+    """
+    the holder of the shares
+    """
+    holder: User!
+    """
+    historcal transcactions of on the share
+    """
+    transactions: [Transaction]
+}
+
+"""
+a historacal transction on a share
+created when a user buys or sells a stock
+"""
+type Transaction {
+    """
+    when the transcation took place
+    """
+    time: Time!
+    """
+    the value of the stock at the time of the transaction
+    """
+    value: Int!
+    """
+    the amount of shares bought/sold
+    """
+    count: Int!
+    """
+    the user who bought/sold the share
+    """
+    user: User!
+}
+
+
+

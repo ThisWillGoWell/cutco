@@ -1,0 +1,126 @@
+"""
+Read chat messages
+"""
+input ReadChatMessagesInput {
+    """
+    (Optional) read messages just in channel, if empty will return all channels the user is apart of
+    """
+    channelID: ID
+    """
+    the max number of messages to return
+    default: 5
+    """
+    messagesLimit: Int
+    """
+    where to start reading messages at
+    defualt: time.Now()
+    """
+    startTime: Time
+
+    """
+    pagination done though time string, cant use Time because of
+    https://github.com/99designs/gqlgen/issues/1510
+
+    """
+    paginationKey: String
+}
+
+"""
+Send a chat message to a channel or user
+"""
+input SendChatInput {
+    """
+    Send message to channel id
+    """
+    channelID: ID
+    """
+    if there currently is no channel for a user whisper, you can provide the
+    user id of the target user, a new channel will be created
+    """
+    userID: ID
+    """
+    message string to send
+    """
+    message: String!
+}
+
+"""
+Types of channel
+"""
+enum ChannelType {
+    PRIVATE
+    PUBLIC
+    WHISPER
+}
+
+"""
+A chat message
+"""
+type ChatMessage {
+    """
+    id of the message
+    """
+    id: ID!
+    """
+    user who sent the message
+    """
+    user: User!
+    """
+    message contents
+    """
+    message: String!
+    """
+    when the message was sent
+    """
+    createdAt: Time!
+
+    """
+    timestamp, but more precise. cant use Time! because of
+    https://github.com/99designs/gqlgen/issues/1510
+    """
+    paginationKey: String!
+
+    """
+    what chat channel the message belongs to
+    """
+    channel: ChatChannel!
+
+}
+
+"""
+A string of messages between users
+"""
+type ChatChannel {
+    """
+    the id of the chat channel
+    """
+    id: ID!
+    """
+    a friently name for a chat
+    for whisper chats will just be whisper
+    """
+    name: String
+
+    """
+    when the channel was created
+    """
+    createdAt: Time
+
+    """
+    the type of channel
+    """
+    type: ChannelType!
+
+    """
+    messages in channel
+    """
+    messages: [ChatMessage!]
+
+    """
+    other members in the channel
+    does not reutrn the id of the user
+    """
+    members: [User]
+}
+
+

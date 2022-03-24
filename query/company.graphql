@@ -1,0 +1,49 @@
+query Companines($input: GetCompanyInput) {
+    companies(input: $input) {
+        id
+        name
+    }
+}
+
+query CompanyShares($input: GetCompanyInput) {
+    companies(input: $input) {
+        id
+        name
+        symbol
+        shares {
+            holder {
+                id
+                name
+            }
+            count
+        }
+    }
+}
+
+
+query GetShare($input: GetShareInput ) {
+    share(input: $input) {
+        holder {
+            id
+            name
+        }
+        company {
+            id
+            symbol
+            name
+        }
+
+        transactions {
+            time
+            count
+            value
+        }
+    }
+}
+
+mutation Trade($input: TradeInput!) {
+    trade(input: $input) {
+        Success
+    }
+}
+

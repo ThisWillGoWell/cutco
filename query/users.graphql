@@ -1,0 +1,99 @@
+mutation Signup($input: SignupInput!){
+    signup(input: $input) {
+        token
+    }
+}
+
+mutation Login($input: LoginInput!){
+    login(input: $input) {
+        token
+    }
+}
+
+query Users($input: GetUsersInput) {
+    users(input: $input) {
+        name
+        id
+    }
+}
+
+mutation DeleteMe {
+    updateMe(input: {delete: true}) {
+        success
+    }
+}
+
+
+mutation UpdateMe($input:ChangeMeInput!) {
+    updateMe(input: $input) { me { user { id } } }
+}
+
+mutation SendMessage($input:SendChatInput!) {
+    sendChat(input: $input) {
+        channel {
+            id
+        }
+        message
+        createdAt
+    }
+}
+
+query ReadChat($input: ReadChatMessagesInput) {
+    chat(input: $input) {
+        id,
+        members {
+            id
+        },
+        createdAt
+        messages{
+            id
+            message
+            createdAt
+            paginationKey
+            user {
+                id
+            }
+        }
+    }
+}
+
+query MyID {
+    me {
+        user { id }
+    }
+}
+
+query FullProfile {
+    me {
+        email
+        login
+        user {
+            id
+            name
+            investorType
+            createdAt
+            description
+            company {
+                id
+                value
+                createdAt
+                openShares
+                description
+                name
+                symbol
+                shares {
+                    holder {
+                        id
+                    }
+                    count
+                }
+            }
+            shares {
+                company {
+                    id
+                }
+                count
+            }
+        }
+    }
+}

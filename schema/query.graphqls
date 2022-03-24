@@ -1,0 +1,44 @@
+# API Queries
+type Query {
+    """
+    Load inforamtoin about a logged in user
+    """
+    me: MeUser!
+
+    """
+    Load user by ID
+    Must provide UserID in GetUserInput
+    """
+    user(input: GetUsersInput!): User
+
+    """
+    Load many users by IDs, no input will reutrn all users
+    """
+    users(input:GetUsersInput): [User!]
+
+    """
+    Load comapny by ID, must provide CompanyID in input
+    """
+    company(input: GetCompanyInput!): Company
+
+    """
+    Load many companines by IDs, no input will reutrn all companies
+    """
+    companies(input: GetCompanyInput): [Company!]
+
+    """
+    Load share information
+    """
+    share(input: GetShareInput): Share
+
+    ###################################################
+    # Chat Stuff
+    ###################################################
+
+    """
+    Read chat messages
+    No input will reutrn all chats user is apart of
+    """
+    chat(input: ReadChatMessagesInput): [ChatChannel!]
+
+}

@@ -1,0 +1,285 @@
+# github.com/99designs/gqlgen v0.13.0
+## explicit
+github.com/99designs/gqlgen
+github.com/99designs/gqlgen/api
+github.com/99designs/gqlgen/cmd
+github.com/99designs/gqlgen/codegen
+github.com/99designs/gqlgen/codegen/config
+github.com/99designs/gqlgen/codegen/templates
+github.com/99designs/gqlgen/complexity
+github.com/99designs/gqlgen/graphql
+github.com/99designs/gqlgen/graphql/errcode
+github.com/99designs/gqlgen/graphql/executor
+github.com/99designs/gqlgen/graphql/handler
+github.com/99designs/gqlgen/graphql/handler/extension
+github.com/99designs/gqlgen/graphql/handler/lru
+github.com/99designs/gqlgen/graphql/handler/transport
+github.com/99designs/gqlgen/graphql/introspection
+github.com/99designs/gqlgen/graphql/playground
+github.com/99designs/gqlgen/handler
+github.com/99designs/gqlgen/internal/code
+github.com/99designs/gqlgen/internal/imports
+github.com/99designs/gqlgen/internal/rewrite
+github.com/99designs/gqlgen/plugin
+github.com/99designs/gqlgen/plugin/federation
+github.com/99designs/gqlgen/plugin/modelgen
+github.com/99designs/gqlgen/plugin/resolvergen
+github.com/99designs/gqlgen/plugin/servergen
+# github.com/Masterminds/semver/v3 v3.1.1
+github.com/Masterminds/semver/v3
+# github.com/ThisWillGoWell/saw v0.2.3-0.20191209225709-3af7e4f2f3c7
+## explicit
+github.com/ThisWillGoWell/saw/blade
+github.com/ThisWillGoWell/saw/config
+# github.com/TylerBrock/colorjson v0.0.0-20200706003622-8a50f05110d2
+## explicit
+github.com/TylerBrock/colorjson
+# github.com/TylerBrock/saw v0.2.2
+## explicit
+# github.com/Yamashou/gqlgenc v0.0.0-20210330020310-5eab2091f840
+## explicit
+github.com/Yamashou/gqlgenc
+github.com/Yamashou/gqlgenc/client
+github.com/Yamashou/gqlgenc/clientgen
+github.com/Yamashou/gqlgenc/clientgenv2
+github.com/Yamashou/gqlgenc/config
+github.com/Yamashou/gqlgenc/generator
+github.com/Yamashou/gqlgenc/graphqljson
+github.com/Yamashou/gqlgenc/introspection
+# github.com/agnivade/levenshtein v1.1.0
+github.com/agnivade/levenshtein
+# github.com/aws/aws-cdk-go/awscdk v1.97.0-devpreview
+## explicit
+github.com/aws/aws-cdk-go/awscdk
+github.com/aws/aws-cdk-go/awscdk/awscloudwatch
+github.com/aws/aws-cdk-go/awscdk/awscloudwatch/internal
+github.com/aws/aws-cdk-go/awscdk/awsiam
+github.com/aws/aws-cdk-go/awscdk/awsiam/internal
+github.com/aws/aws-cdk-go/awscdk/awskms
+github.com/aws/aws-cdk-go/awscdk/awskms/internal
+github.com/aws/aws-cdk-go/awscdk/awssns
+github.com/aws/aws-cdk-go/awscdk/awssns/internal
+github.com/aws/aws-cdk-go/awscdk/awssqs
+github.com/aws/aws-cdk-go/awscdk/awssqs/internal
+github.com/aws/aws-cdk-go/awscdk/cloudassemblyschema
+github.com/aws/aws-cdk-go/awscdk/cxapi
+github.com/aws/aws-cdk-go/awscdk/internal
+github.com/aws/aws-cdk-go/awscdk/jsii
+# github.com/aws/aws-lambda-go v1.23.0
+## explicit
+github.com/aws/aws-lambda-go/events
+github.com/aws/aws-lambda-go/lambda
+github.com/aws/aws-lambda-go/lambda/handlertrace
+github.com/aws/aws-lambda-go/lambda/messages
+github.com/aws/aws-lambda-go/lambdacontext
+# github.com/aws/aws-sdk-go v1.38.27
+## explicit
+github.com/aws/aws-sdk-go/aws
+github.com/aws/aws-sdk-go/aws/arn
+github.com/aws/aws-sdk-go/aws/awserr
+github.com/aws/aws-sdk-go/aws/awsutil
+github.com/aws/aws-sdk-go/aws/client
+github.com/aws/aws-sdk-go/aws/client/metadata
+github.com/aws/aws-sdk-go/aws/corehandlers
+github.com/aws/aws-sdk-go/aws/credentials
+github.com/aws/aws-sdk-go/aws/credentials/ec2rolecreds
+github.com/aws/aws-sdk-go/aws/credentials/endpointcreds
+github.com/aws/aws-sdk-go/aws/credentials/processcreds
+github.com/aws/aws-sdk-go/aws/credentials/ssocreds
+github.com/aws/aws-sdk-go/aws/credentials/stscreds
+github.com/aws/aws-sdk-go/aws/crr
+github.com/aws/aws-sdk-go/aws/csm
+github.com/aws/aws-sdk-go/aws/defaults
+github.com/aws/aws-sdk-go/aws/ec2metadata
+github.com/aws/aws-sdk-go/aws/endpoints
+github.com/aws/aws-sdk-go/aws/request
+github.com/aws/aws-sdk-go/aws/session
+github.com/aws/aws-sdk-go/aws/signer/v4
+github.com/aws/aws-sdk-go/internal/context
+github.com/aws/aws-sdk-go/internal/ini
+github.com/aws/aws-sdk-go/internal/s3shared
+github.com/aws/aws-sdk-go/internal/s3shared/arn
+github.com/aws/aws-sdk-go/internal/s3shared/s3err
+github.com/aws/aws-sdk-go/internal/sdkio
+github.com/aws/aws-sdk-go/internal/sdkmath
+github.com/aws/aws-sdk-go/internal/sdkrand
+github.com/aws/aws-sdk-go/internal/sdkuri
+github.com/aws/aws-sdk-go/internal/shareddefaults
+github.com/aws/aws-sdk-go/internal/strings
+github.com/aws/aws-sdk-go/internal/sync/singleflight
+github.com/aws/aws-sdk-go/private/checksum
+github.com/aws/aws-sdk-go/private/protocol
+github.com/aws/aws-sdk-go/private/protocol/eventstream
+github.com/aws/aws-sdk-go/private/protocol/eventstream/eventstreamapi
+github.com/aws/aws-sdk-go/private/protocol/json/jsonutil
+github.com/aws/aws-sdk-go/private/protocol/jsonrpc
+github.com/aws/aws-sdk-go/private/protocol/query
+github.com/aws/aws-sdk-go/private/protocol/query/queryutil
+github.com/aws/aws-sdk-go/private/protocol/rest
+github.com/aws/aws-sdk-go/private/protocol/restjson
+github.com/aws/aws-sdk-go/private/protocol/restxml
+github.com/aws/aws-sdk-go/private/protocol/xml/xmlutil
+github.com/aws/aws-sdk-go/service/cloudformation
+github.com/aws/aws-sdk-go/service/cloudwatchlogs
+github.com/aws/aws-sdk-go/service/dynamodb
+github.com/aws/aws-sdk-go/service/dynamodb/dynamodbattribute
+github.com/aws/aws-sdk-go/service/dynamodb/expression
+github.com/aws/aws-sdk-go/service/s3
+github.com/aws/aws-sdk-go/service/s3/s3iface
+github.com/aws/aws-sdk-go/service/sso
+github.com/aws/aws-sdk-go/service/sso/ssoiface
+github.com/aws/aws-sdk-go/service/sts
+github.com/aws/aws-sdk-go/service/sts/stsiface
+# github.com/aws/constructs-go/constructs/v3 v3.3.71
+## explicit
+github.com/aws/constructs-go/constructs/v3
+github.com/aws/constructs-go/constructs/v3/jsii
+# github.com/aws/jsii-runtime-go v1.27.0
+## explicit
+github.com/aws/jsii-runtime-go
+github.com/aws/jsii-runtime-go/internal/api
+github.com/aws/jsii-runtime-go/internal/embedded
+github.com/aws/jsii-runtime-go/internal/kernel
+github.com/aws/jsii-runtime-go/internal/kernel/process
+github.com/aws/jsii-runtime-go/internal/objectstore
+github.com/aws/jsii-runtime-go/internal/typeregistry
+# github.com/c-bata/go-prompt v0.2.6
+## explicit
+github.com/c-bata/go-prompt
+github.com/c-bata/go-prompt/internal/bisect
+github.com/c-bata/go-prompt/internal/debug
+github.com/c-bata/go-prompt/internal/strings
+github.com/c-bata/go-prompt/internal/term
+# github.com/cpuguy83/go-md2man/v2 v2.0.0
+github.com/cpuguy83/go-md2man/v2/md2man
+# github.com/davecgh/go-spew v1.1.1
+github.com/davecgh/go-spew/spew
+# github.com/fatih/color v1.10.0
+## explicit
+github.com/fatih/color
+# github.com/gorilla/websocket v1.4.2
+github.com/gorilla/websocket
+# github.com/graph-gophers/dataloader v5.0.0+incompatible
+## explicit
+github.com/graph-gophers/dataloader
+# github.com/hashicorp/golang-lru v0.5.4
+## explicit
+github.com/hashicorp/golang-lru
+github.com/hashicorp/golang-lru/simplelru
+# github.com/hokaccha/go-prettyjson v0.0.0-20210113012101-fb4e108d2519
+## explicit
+# github.com/jmespath/go-jmespath v0.4.0
+github.com/jmespath/go-jmespath
+# github.com/matryer/moq v0.2.1
+## explicit
+github.com/matryer/moq
+github.com/matryer/moq/internal/registry
+github.com/matryer/moq/internal/template
+github.com/matryer/moq/pkg/moq
+# github.com/mattn/go-colorable v0.1.8
+github.com/mattn/go-colorable
+# github.com/mattn/go-isatty v0.0.12
+github.com/mattn/go-isatty
+# github.com/mattn/go-runewidth v0.0.9
+github.com/mattn/go-runewidth
+# github.com/mattn/go-tty v0.0.3
+github.com/mattn/go-tty
+# github.com/mitchellh/mapstructure v1.4.1
+## explicit
+github.com/mitchellh/mapstructure
+# github.com/opentracing/opentracing-go v1.2.0
+## explicit
+github.com/opentracing/opentracing-go
+github.com/opentracing/opentracing-go/log
+# github.com/pkg/errors v0.9.1
+github.com/pkg/errors
+# github.com/pkg/term v1.2.0-beta.2
+github.com/pkg/term/termios
+# github.com/pmezard/go-difflib v1.0.0
+github.com/pmezard/go-difflib/difflib
+# github.com/russross/blackfriday/v2 v2.1.0
+## explicit
+github.com/russross/blackfriday/v2
+# github.com/spf13/cobra v1.1.3
+## explicit
+# github.com/stretchr/testify v1.7.0
+## explicit
+github.com/stretchr/testify/assert
+github.com/stretchr/testify/require
+github.com/stretchr/testify/suite
+# github.com/tidwall/gjson v1.7.4
+## explicit
+github.com/tidwall/gjson
+# github.com/tidwall/match v1.0.3
+github.com/tidwall/match
+# github.com/tidwall/pretty v1.1.0
+github.com/tidwall/pretty
+# github.com/urfave/cli/v2 v2.3.0
+## explicit
+github.com/urfave/cli/v2
+# github.com/vektah/dataloaden v0.3.0
+## explicit
+github.com/vektah/dataloaden
+github.com/vektah/dataloaden/pkg/generator
+# github.com/vektah/gqlparser/v2 v2.2.0
+## explicit
+github.com/vektah/gqlparser/v2
+github.com/vektah/gqlparser/v2/ast
+github.com/vektah/gqlparser/v2/formatter
+github.com/vektah/gqlparser/v2/gqlerror
+github.com/vektah/gqlparser/v2/lexer
+github.com/vektah/gqlparser/v2/parser
+github.com/vektah/gqlparser/v2/validator
+github.com/vektah/gqlparser/v2/validator/rules
+# go.uber.org/atomic v1.6.0
+go.uber.org/atomic
+# go.uber.org/multierr v1.5.0
+go.uber.org/multierr
+# go.uber.org/zap v1.16.0
+## explicit
+go.uber.org/zap
+go.uber.org/zap/buffer
+go.uber.org/zap/internal/bufferpool
+go.uber.org/zap/internal/color
+go.uber.org/zap/internal/exit
+go.uber.org/zap/zapcore
+# golang.org/x/crypto v0.0.0-20200820211705-5c72a883971a
+## explicit
+golang.org/x/crypto/bcrypt
+golang.org/x/crypto/blowfish
+# golang.org/x/mod v0.4.2
+## explicit
+golang.org/x/mod/module
+golang.org/x/mod/semver
+# golang.org/x/sys v0.0.0-20210420205809-ac73e9fd8988
+## explicit
+golang.org/x/sys/execabs
+golang.org/x/sys/internal/unsafeheader
+golang.org/x/sys/unix
+# golang.org/x/tools v0.1.0
+## explicit
+golang.org/x/tools/go/ast/astutil
+golang.org/x/tools/go/gcexportdata
+golang.org/x/tools/go/internal/gcimporter
+golang.org/x/tools/go/internal/packagesdriver
+golang.org/x/tools/go/packages
+golang.org/x/tools/imports
+golang.org/x/tools/internal/event
+golang.org/x/tools/internal/event/core
+golang.org/x/tools/internal/event/keys
+golang.org/x/tools/internal/event/label
+golang.org/x/tools/internal/fastwalk
+golang.org/x/tools/internal/gocommand
+golang.org/x/tools/internal/gopathwalk
+golang.org/x/tools/internal/imports
+golang.org/x/tools/internal/packagesinternal
+golang.org/x/tools/internal/typesinternal
+# golang.org/x/xerrors v0.0.0-20200804184101-5ec99f83aff1
+golang.org/x/xerrors
+golang.org/x/xerrors/internal
+# gopkg.in/yaml.v2 v2.4.0
+## explicit
+gopkg.in/yaml.v2
+# gopkg.in/yaml.v3 v3.0.0-20210107192922-496545a6307b
+## explicit
+gopkg.in/yaml.v3

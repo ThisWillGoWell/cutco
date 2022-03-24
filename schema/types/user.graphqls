@@ -1,0 +1,66 @@
+
+"""
+Things on a user that only they should ever need to know about/have no relation to the game
+"""
+type MeUser {
+    """
+    The user that belongs to the user
+    """
+    user: User!
+    """
+    The user's current email on file, could be nil
+    """
+    email: String
+    """
+    The user's login
+    """
+    login: String!
+}
+
+type User {
+    """
+    unique id for the user
+    """
+    id: ID!
+    """
+    # when was the user last active
+    """
+    lastActiveAt: Time!
+    """
+    # the name the user is seen in game
+    """
+    name: String!
+    """
+    the description of the user
+    """
+    description: String!
+    """
+    when was the user created at
+    """
+    createdAt: Time!
+    """
+    the company the user owns
+    """
+    company: Company
+    """
+    the shares a user owns
+    """
+    shares: [Share]!
+    """
+    the amount of money the user has
+    """
+    wallet: Int!
+
+    """
+    the type of investor
+    """
+    investorType: String!
+}
+
+"""
+Get users by ID or IDS
+"""
+input GetUsersInput {
+    UserID: ID!
+    UserIDs: [ID!]
+}

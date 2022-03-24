@@ -1,0 +1,46 @@
+
+input LoginInput {
+    login: String!
+    password: String!
+}
+
+input SignupInput {
+    login: String!
+    email: String
+    displayName: String!
+    password: String!
+    description: String!
+    investorType: String!
+    company: CreateCompanyInput
+}
+
+input ChangeMeInput {
+    # Password changes
+    oldPassword: String
+    password: String
+
+    # DisplayName changes
+    displayName: String
+    description: String
+
+    # email
+    email: String
+
+    """
+    Delete Account
+    """
+    delete: Boolean
+}
+
+type ChangeMePayload {
+    success: Boolean!
+    me: MeUser
+}
+
+type AuthPayload {
+    token: String!
+}
+
+type DeletePayload {
+    Error: String
+}
