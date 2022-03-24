@@ -12,7 +12,8 @@ export class MyPipelineStack extends cdk.Stack {
       pipelineName: 'cutco-staging-pipeline',
       synth: new ShellStep('synth', {
         input: CodePipelineSource.gitHub('ThisWillGoWell/cutco', branch),
-        commands: ['cd infra', 'npm ci', 'npm run build', 'npx cdk synth']
+        commands: ['cd infra', 'npm ci', 'npm run build', 'npx cdk synth'],
+        primaryOutputDirectory: 'infra/cdk.out'
       })
     });
 
