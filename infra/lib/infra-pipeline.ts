@@ -4,11 +4,11 @@ import { CodePipeline, CodePipelineSource, ShellStep } from 'aws-cdk-lib/pipelin
 import {AppStage} from "./infra-app-pipeline";
 
 
-export class MyPipelineStack extends cdk.Stack {
+export class PipelineStack extends cdk.Stack {
   constructor(scope: Construct, id: string, branch: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
-    const pipeline = new CodePipeline(this, 'cutcto-staging-pipeline', {
+    const pipeline = new CodePipeline(this, 'pipeline-stage', {
       pipelineName: 'cutco-staging-pipeline',
       synth: new ShellStep('synth', {
         input: CodePipelineSource.gitHub('ThisWillGoWell/cutco', branch),
@@ -17,7 +17,7 @@ export class MyPipelineStack extends cdk.Stack {
       })
     });
 
-    pipeline.addStage(new AppStage(this, "cutco-application", {
+    pipeline.addStage(new AppStage(this, "app-stage", {
       env: props?.env
     }));
   }
