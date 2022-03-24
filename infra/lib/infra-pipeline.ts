@@ -1,6 +1,8 @@
 import * as cdk from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import { CodePipeline, CodePipelineSource, ShellStep } from 'aws-cdk-lib/pipelines';
+import {AppStage} from "./infra-app-pipeline";
+
 
 export class MyPipelineStack extends cdk.Stack {
   constructor(scope: Construct, id: string, branch: string, props?: cdk.StackProps) {
@@ -13,5 +15,9 @@ export class MyPipelineStack extends cdk.Stack {
         commands: ['cd infra', 'npm ci', 'npm run build', 'npx cdk synth']
       })
     });
+
+    pipeline.addStage(new AppStage(this, "cutco-application", {
+      env: props?.env
+    }));
   }
 }
