@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import * as cdk from 'aws-cdk-lib';
-import { PipelineStack } from '../lib/infra-pipeline';
+import {PipelineStack} from "../lib/infra-pipeline";
 
 const app = new cdk.App();
 new PipelineStack(app, 'cutco-staging', 'staging', {
