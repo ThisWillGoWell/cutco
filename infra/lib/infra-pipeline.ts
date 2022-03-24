@@ -8,7 +8,7 @@ export class MyPipelineStack extends cdk.Stack {
 
     const pipeline = new CodePipeline(this, 'cutcto-staging-pipeline', {
       pipelineName: 'cutco-staging-pipeline',
-      synth: new ShellStep('Synth', {
+      synth: new ShellStep('synth', {
         input: CodePipelineSource.gitHub('ThisWillGoWell/cutco', branch),
         commands: ['cd infra', 'npm ci', 'npm run build', 'npx cdk synth']
       })
