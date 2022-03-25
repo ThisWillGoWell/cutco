@@ -16,7 +16,7 @@ export class AppStack extends cdk.Stack {
     constructor(scope: Construct, id: string, branch: string, props?: cdk.StackProps) {
         super(scope, id, props);
         function name(n: string){
-            return `${props?.stackName}-${n}`
+            return `cutco-${branch}-${n}`
         }
 
         this.lambdaFunction = new Function(this, 'LambdaFunction', {
