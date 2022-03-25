@@ -13,7 +13,7 @@ export class AppStack extends cdk.Stack {
     private lambdaFunction: Function
     private restAPI: RestApi
 
-    constructor(scope: Construct, id: string, props?: cdk.StackProps) {
+    constructor(scope: Construct, id: string, branch: string, props?: cdk.StackProps) {
         super(scope, id, props);
         function name(n: string){
             return `${props?.stackName}-${n}`
@@ -26,9 +26,9 @@ export class AppStack extends cdk.Stack {
             code: new InlineCode('exports.handler = _ => "Hello, CDK";')
         });
 
-        let subDomain = props?.stackName?.replace("cutco-", "")
+        let subDomain = branch
 
-        if(subDomain == "prod") {
+        if(subDomain == "main") {
             subDomain = "api";
         }
 
@@ -46,8 +46,7 @@ export class AppStack extends cdk.Stack {
             allowMethods: Cors.ALL_METHODS
         })
 
-        const graphAPI = this.restAPI.root.addResource("graph")
-        graphAPI.addMethod("POST",
+        this.restAPI.root.addResource("graph").addMethod("POST",
             new LambdaIntegration(this.lambdaFunction, {})
         )
     }

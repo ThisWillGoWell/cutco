@@ -6,7 +6,6 @@ export class AppStage extends cdk.Stage {
 
     constructor(scope: Construct, id: string,  branch: string, props?: cdk.StageProps) {
         super(scope, id, props);
-
-        const appStack = new AppStack(this, 'Application');
+        const appStack = new AppStack(this, branch,`${branch}AppStack`);
     }
 }
