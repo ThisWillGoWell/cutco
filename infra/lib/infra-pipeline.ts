@@ -9,7 +9,7 @@ export class PipelineStack extends cdk.Stack {
     super(scope, id, props);
 
     const pipeline = new CodePipeline(this,`${props?.stackName}Pipeline`, {
-      pipelineName: `${props?.stackName}Pipeline`,
+      pipelineName: `${branch}-Pipeline`,
       synth: new ShellStep('synth', {
         input: CodePipelineSource.gitHub('ThisWillGoWell/cutco', branch),
         commands: ['cd infra', 'npm ci', 'npm run build', 'npx cdk synth'],
@@ -17,7 +17,7 @@ export class PipelineStack extends cdk.Stack {
       })
     });
 
-    pipeline.addStage(new AppStage(this, `${props?.stackName}AppStack`, branch,{
+    pipeline.addStage(new AppStage(this, `${branch}AppStage`, branch,{
       env: props?.env
     }));
   }
