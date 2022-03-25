@@ -26,16 +26,16 @@ export class AppStack extends cdk.Stack {
             code: new InlineCode('exports.handler = _ => "Hello, CDK";')
         });
 
-        let subDomain = branch
+        let subDomain = branch.toLocaleLowerCase()
 
         if(subDomain == "main") {
             subDomain = "api";
         }
-
+        const domain = `${subDomain}.highground.cloud`
         this.restAPI = new RestApi(this, "RestApi", {
             restApiName: name('api-gateway'),
             domainName: {
-                domainName: `${subDomain}.highground.cloud`,
+                domainName: domain,
                 certificate:  Certificate.fromCertificateArn(this, 'cert', 'arn:aws:acm:us-east-2:571558830047:certificate/acdf6d55-a83a-4deb-b5f2-9a9e00535225')
             },
         })
