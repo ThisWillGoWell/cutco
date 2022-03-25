@@ -8,7 +8,7 @@ export class PipelineStack extends cdk.Stack {
   constructor(scope: Construct, id: string, branch: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
-    const pipeline = new CodePipeline(this,`${props?.stackName}Pipeline`, {
+    const pipeline = new CodePipeline(this,`${branch}Pipeline`, {
       pipelineName: `${branch}-Pipeline`,
       synth: new ShellStep('synth', {
         input: CodePipelineSource.gitHub('ThisWillGoWell/cutco', branch),
