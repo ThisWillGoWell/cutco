@@ -1,0 +1,79 @@
+"""
+A post indicting things at camp
+"""
+type Post {
+    """
+    the title of the post to appear
+    """
+    title: String!
+
+    """
+    the type of post
+    """
+    type: PostType
+
+    """
+    if the post has an attached event
+    """
+    event: Event
+
+    """
+    badge post information
+    """
+    badge: Badge
+
+    """
+    photo post information
+    """
+    photo: PhotoPost
+}
+
+"""
+The post type
+"""
+enum PostType {
+    """
+    post about an upcoming event
+    """
+    Event
+
+    """
+    post about a badge
+    """
+    Badge
+
+    """
+    post about a photo
+    """
+    Photo
+}
+
+type PhotoPost {
+    """
+    the user who uploaded the photo
+    """
+    uploader: User!
+
+    """
+    download  url for the photo
+    """
+    photoUrl: String!
+
+}
+
+type CreatePhotoPostInput {
+    """
+    the id returned from the UploadPhotoAPI
+    """
+    photoUploadID: String!
+
+    """
+    the description of the photo
+    """
+    description: String!
+
+    """
+    users tagged in the photo
+    """
+    tags: [User!]
+}

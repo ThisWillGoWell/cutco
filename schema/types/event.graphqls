@@ -1,0 +1,54 @@
+type Event {
+    """
+    event title
+    """
+    title: String!
+
+    """
+    The user who created the event
+    """
+    createdBy: User
+
+    """
+    The list of users who attending the event
+    """
+    attendees: [User!]!
+
+    """
+    the time the event was created at
+    """
+    createdAt: Time!
+
+    """
+    the time the event started at
+    """
+    eventStart: Time!
+
+    """
+    the time the event ends at
+    """
+    eventEnd: Time
+
+    """
+    location
+    """
+    location: String!
+
+    """
+    description of the event
+    """
+    description: String!
+}
+
+type EventPosts {
+    """
+    user who made the comment
+    """
+    user: User!
+
+    """
+    post message
+    """
+    post: String!
+}
+

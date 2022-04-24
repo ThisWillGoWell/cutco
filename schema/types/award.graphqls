@@ -1,0 +1,21 @@
+type Award {
+    """
+    Badge if the reward came from a badge
+    """
+    badge: Badge
+
+    """
+    The user who received the award
+    """
+    recipient: User!
+
+    """
+    Description of the award
+    """
+    description: String!
+
+    """
+    When the award was received
+    """
+    timestamp: Time!
+}

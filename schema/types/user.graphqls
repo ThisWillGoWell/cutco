@@ -17,6 +17,9 @@ type MeUser {
     login: String!
 }
 
+"""
+A user of camp cutco
+"""
 type User {
     """
     unique id for the user
@@ -39,22 +42,71 @@ type User {
     """
     createdAt: Time!
     """
-    the company the user owns
+    the badges the user has
     """
-    company: Company
-    """
-    the shares a user owns
-    """
-    shares: [Share]!
-    """
-    the amount of money the user has
-    """
-    wallet: Int!
+    badges: [Badge!]!
 
     """
-    the type of investor
+    the awards the user has gotten
     """
-    investorType: String!
+    awards: [Award!]!
+
+    """
+    the number of points rewarded to the user by camp staff
+    """
+    points: Int
+
+    """
+    the number of points rewarded to the user by parents
+    """
+    parentPoints: Int
+
+    """
+    the last updated location of the user
+    Returns null if out of date or unknown
+    """
+    location: Location
+
+}
+
+"""
+different types of users that exist
+"""
+enum UserType {
+    """
+    User is admin type that
+    """
+    Admin
+
+    """
+    Camper, most users are campers
+    """
+    Camper
+
+    """
+    Camp staff, those we honor the most
+    """
+    Staff
+
+    """
+    Parents, the ones who make it all happen <3
+    """
+    Parent
+}
+
+"""
+longitude/latitude point on the globe
+"""
+type Location {
+    """
+    The timestamp the location was taken
+    """
+    timestamp: Time!
+    """
+    Latitude of the location
+    """
+    latitude: Float!
+    longitude: Float!
 }
 
 """

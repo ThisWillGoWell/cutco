@@ -1,0 +1,80 @@
+
+type Badge {
+    """
+    the id of the badge
+    """
+    id: ID!
+
+    """
+    the name of the badge
+    """
+    name: String!
+
+    """
+    Description of the badge
+    """
+    description: String!
+
+    """
+    The url for the picture
+    """
+    pictureUrl: String
+
+    """
+    The number of points the badge is worth
+    """
+    points: Int!
+
+    """
+    When was the badge created at
+    """
+    createdAt: Time!
+
+    """
+    When was the badge award at
+    """
+    awardedAt: Time!
+
+    """
+    The users who hold the badge
+    """
+    holders: [User!]
+
+    """
+    the type of badge reward
+    """
+    type: BadgeType
+
+}
+
+enum BadgeType {
+    """
+    a merit badge is one created by camp staff
+    """
+    MERIT
+    """
+    community badge is created by campers
+    """
+    COMMUNITY
+}
+
+type AwardBadgeInput {
+    """
+    what badge are you rewarding
+    """
+    badgeID: ID!
+
+}
+
+
+type CreateBadgeRequest {
+    """
+    The badge info
+    """
+    badgeProtoType: Badge!
+
+    """
+    the upload photo id to use for the badge
+    """
+    photoID: String!
+}
