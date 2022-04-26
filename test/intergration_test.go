@@ -48,7 +48,7 @@ type TestSuite struct {
 	users []TestUser
 }
 
-// create the useres. delets the user if they exist
+// create the useres. delets the userdao if they exist
 var validSingup1 = model.SignupInput{
 	Login:        "user1",
 	DisplayName:  "Mortis",
@@ -117,7 +117,7 @@ func (suite *TestSuite) deleteUsers(users []*TestUser) {
 func (suite *TestSuite) TestSignupUser() {
 	users := suite.init()
 
-	// make sure each user has an ID and company
+	// make sure each userdao has an ID and company
 	for _, u := range users {
 		info, err := u.client.FullProfile(ctx)
 		assert.NoError(suite.T(), err)
@@ -134,7 +134,7 @@ func (suite *TestSuite) TestSignupUser() {
 		assert.NotEmpty(suite.T(), info.Me.User.Company.ID)
 	}
 
-	// each user should be able to login
+	// each userdao should be able to login
 	for _, u := range users {
 		resp, err := suite.c.Login(ctx, model.LoginInput{
 			Login:    u.signup.Login,
@@ -178,7 +178,7 @@ func (suite *TestSuite) TestSendMessagesUser() {
 
 	// send lots of message with some time delay between them
 	for _, u2 := range users[1:] {
-		// send the first message to the user id
+		// send the first message to the userdao id
 		mes, err := users[0].client.SendMessage(ctx, model.SendChatInput{
 			UserID:  aws.String(u2.id),
 			Message: "hello!",

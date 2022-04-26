@@ -21,8 +21,8 @@ type Mutation {
     sendChat(input: SendChatInput!): ChatMessage
 
     """
-    buy or sell shares of a company
+    complete a task
     """
-    trade(input:TradeInput!):TradePayload
+    completeTaskRequirement(input: ChallengeRequirementCompletion!): Challenge
 
 }

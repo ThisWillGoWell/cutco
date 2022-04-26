@@ -3,7 +3,7 @@ package awssqs
 import (
 	"reflect"
 
-	_jsii_ "github.com/aws/jsii-runtime-go"
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
 func init() {
@@ -20,13 +20,16 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrArn", GoGetter: "AttrArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrQueueName", GoGetter: "AttrQueueName"},
+			_jsii_.MemberProperty{JsiiProperty: "attrQueueUrl", GoGetter: "AttrQueueUrl"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
 			_jsii_.MemberProperty{JsiiProperty: "contentBasedDeduplication", GoGetter: "ContentBasedDeduplication"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "deduplicationScope", GoGetter: "DeduplicationScope"},
 			_jsii_.MemberProperty{JsiiProperty: "delaySeconds", GoGetter: "DelaySeconds"},
 			_jsii_.MemberProperty{JsiiProperty: "fifoQueue", GoGetter: "FifoQueue"},
+			_jsii_.MemberProperty{JsiiProperty: "fifoThroughputLimit", GoGetter: "FifoThroughputLimit"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
@@ -43,6 +46,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "queueName", GoGetter: "QueueName"},
 			_jsii_.MemberProperty{JsiiProperty: "receiveMessageWaitTimeSeconds", GoGetter: "ReceiveMessageWaitTimeSeconds"},
+			_jsii_.MemberProperty{JsiiProperty: "redriveAllowPolicy", GoGetter: "RedriveAllowPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "redrivePolicy", GoGetter: "RedrivePolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
@@ -119,11 +123,28 @@ func init() {
 		"monocdk.aws_sqs.DeadLetterQueue",
 		reflect.TypeOf((*DeadLetterQueue)(nil)).Elem(),
 	)
+	_jsii_.RegisterEnum(
+		"monocdk.aws_sqs.DeduplicationScope",
+		reflect.TypeOf((*DeduplicationScope)(nil)).Elem(),
+		map[string]interface{}{
+			"MESSAGE_GROUP": DeduplicationScope_MESSAGE_GROUP,
+			"QUEUE": DeduplicationScope_QUEUE,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"monocdk.aws_sqs.FifoThroughputLimit",
+		reflect.TypeOf((*FifoThroughputLimit)(nil)).Elem(),
+		map[string]interface{}{
+			"PER_QUEUE": FifoThroughputLimit_PER_QUEUE,
+			"PER_MESSAGE_GROUP_ID": FifoThroughputLimit_PER_MESSAGE_GROUP_ID,
+		},
+	)
 	_jsii_.RegisterInterface(
 		"monocdk.aws_sqs.IQueue",
 		reflect.TypeOf((*IQueue)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addToResourcePolicy", GoMethod: "AddToResourcePolicy"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "encryptionMasterKey", GoGetter: "EncryptionMasterKey"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "fifo", GoGetter: "Fifo"},
@@ -160,6 +181,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addToResourcePolicy", GoMethod: "AddToResourcePolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "autoCreatePolicy", GoGetter: "AutoCreatePolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "deadLetterQueue", GoGetter: "DeadLetterQueue"},
 			_jsii_.MemberProperty{JsiiProperty: "encryptionMasterKey", GoGetter: "EncryptionMasterKey"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "fifo", GoGetter: "Fifo"},
@@ -277,6 +299,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
+			_jsii_.MemberProperty{JsiiProperty: "queuePolicyId", GoGetter: "QueuePolicyId"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},

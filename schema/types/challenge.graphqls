@@ -1,0 +1,87 @@
+type Challenge {
+    """
+    the id of the challenge
+    """
+    id: ID!
+
+    """
+    The name of the challenge
+    """
+    name: String!
+
+    """
+    challenge description
+    """
+    description: String!
+
+    """
+    What  user(s) have passed the challenge
+    """
+    completedBy: [User!]
+
+    """
+    the amount of points the reward is worth
+    """
+    reward: Int!
+
+    """
+    The current campers watching the task, currently competing
+    """
+    watchers: [User]!
+
+    """
+    the list of requirements required to complete
+    """
+    requirements: [ChallengeRequirement!]!
+
+
+}
+
+enum ChallengeType {
+    """
+    this challenge requires going outside!
+    """
+    NATURE
+
+    """
+    play sports (yes even golf)
+    """
+    SPORTS
+
+    """
+
+    """
+    HONOR
+
+}
+
+input ChallengeRequirementCompletion {
+    """
+    What is the task id
+    """
+    task: ID!
+
+    """
+    what is the id of the task requirement
+    """
+    taskRequirementID: ID!
+
+    """
+    (optional) Id from the upload photo process
+    """
+    PhotoUploadID: PhotoUploadID
+}
+
+type ChallengeRequirement {
+    """
+    task requirement id
+    """
+    id: ID!
+
+    """
+    the requirement
+    """
+    requirement: String!
+}
+
+

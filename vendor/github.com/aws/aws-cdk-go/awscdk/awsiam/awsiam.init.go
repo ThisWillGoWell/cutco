@@ -3,15 +3,57 @@ package awsiam
 import (
 	"reflect"
 
-	_jsii_ "github.com/aws/jsii-runtime-go"
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
 func init() {
+	_jsii_.RegisterClass(
+		"monocdk.aws_iam.AccessKey",
+		reflect.TypeOf((*AccessKey)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "accessKeyId", GoGetter: "AccessKeyId"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
+			_jsii_.MemberProperty{JsiiProperty: "secretAccessKey", GoGetter: "SecretAccessKey"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+		},
+		func() interface{} {
+			j := jsiiProxy_AccessKey{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IAccessKey)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_iam.AccessKeyProps",
+		reflect.TypeOf((*AccessKeyProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"monocdk.aws_iam.AccessKeyStatus",
+		reflect.TypeOf((*AccessKeyStatus)(nil)).Elem(),
+		map[string]interface{}{
+			"ACTIVE": AccessKeyStatus_ACTIVE,
+			"INACTIVE": AccessKeyStatus_INACTIVE,
+		},
+	)
 	_jsii_.RegisterClass(
 		"monocdk.aws_iam.AccountPrincipal",
 		reflect.TypeOf((*AccountPrincipal)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "accountId", GoGetter: "AccountId"},
+			_jsii_.MemberMethod{JsiiMethod: "addToAssumeRolePolicy", GoMethod: "AddToAssumeRolePolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "addToPolicy", GoMethod: "AddToPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "addToPrincipalPolicy", GoMethod: "AddToPrincipalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "arn", GoGetter: "Arn"},
@@ -22,6 +64,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "toJSON", GoMethod: "ToJSON"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberMethod{JsiiMethod: "withConditions", GoMethod: "WithConditions"},
+			_jsii_.MemberMethod{JsiiMethod: "withSessionTags", GoMethod: "WithSessionTags"},
 		},
 		func() interface{} {
 			j := jsiiProxy_AccountPrincipal{}
@@ -34,6 +77,7 @@ func init() {
 		reflect.TypeOf((*AccountRootPrincipal)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "accountId", GoGetter: "AccountId"},
+			_jsii_.MemberMethod{JsiiMethod: "addToAssumeRolePolicy", GoMethod: "AddToAssumeRolePolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "addToPolicy", GoMethod: "AddToPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "addToPrincipalPolicy", GoMethod: "AddToPrincipalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "arn", GoGetter: "Arn"},
@@ -44,6 +88,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "toJSON", GoMethod: "ToJSON"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberMethod{JsiiMethod: "withConditions", GoMethod: "WithConditions"},
+			_jsii_.MemberMethod{JsiiMethod: "withSessionTags", GoMethod: "WithSessionTags"},
 		},
 		func() interface{} {
 			j := jsiiProxy_AccountRootPrincipal{}
@@ -63,6 +108,7 @@ func init() {
 		"monocdk.aws_iam.AnyPrincipal",
 		reflect.TypeOf((*AnyPrincipal)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addToAssumeRolePolicy", GoMethod: "AddToAssumeRolePolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "addToPolicy", GoMethod: "AddToPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "addToPrincipalPolicy", GoMethod: "AddToPrincipalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "arn", GoGetter: "Arn"},
@@ -73,6 +119,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "toJSON", GoMethod: "ToJSON"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberMethod{JsiiMethod: "withConditions", GoMethod: "WithConditions"},
+			_jsii_.MemberMethod{JsiiMethod: "withSessionTags", GoMethod: "WithSessionTags"},
 		},
 		func() interface{} {
 			j := jsiiProxy_AnyPrincipal{}
@@ -84,6 +131,7 @@ func init() {
 		"monocdk.aws_iam.Anyone",
 		reflect.TypeOf((*Anyone)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addToAssumeRolePolicy", GoMethod: "AddToAssumeRolePolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "addToPolicy", GoMethod: "AddToPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "addToPrincipalPolicy", GoMethod: "AddToPrincipalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "arn", GoGetter: "Arn"},
@@ -94,6 +142,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "toJSON", GoMethod: "ToJSON"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberMethod{JsiiMethod: "withConditions", GoMethod: "WithConditions"},
+			_jsii_.MemberMethod{JsiiMethod: "withSessionTags", GoMethod: "WithSessionTags"},
 		},
 		func() interface{} {
 			j := jsiiProxy_Anyone{}
@@ -105,6 +154,7 @@ func init() {
 		"monocdk.aws_iam.ArnPrincipal",
 		reflect.TypeOf((*ArnPrincipal)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addToAssumeRolePolicy", GoMethod: "AddToAssumeRolePolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "addToPolicy", GoMethod: "AddToPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "addToPrincipalPolicy", GoMethod: "AddToPrincipalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "arn", GoGetter: "Arn"},
@@ -115,6 +165,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "toJSON", GoMethod: "ToJSON"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberMethod{JsiiMethod: "withConditions", GoMethod: "WithConditions"},
+			_jsii_.MemberMethod{JsiiMethod: "withSessionTags", GoMethod: "WithSessionTags"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ArnPrincipal{}
@@ -126,6 +177,7 @@ func init() {
 		"monocdk.aws_iam.CanonicalUserPrincipal",
 		reflect.TypeOf((*CanonicalUserPrincipal)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addToAssumeRolePolicy", GoMethod: "AddToAssumeRolePolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "addToPolicy", GoMethod: "AddToPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "addToPrincipalPolicy", GoMethod: "AddToPrincipalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "assumeRoleAction", GoGetter: "AssumeRoleAction"},
@@ -136,6 +188,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "toJSON", GoMethod: "ToJSON"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberMethod{JsiiMethod: "withConditions", GoMethod: "WithConditions"},
+			_jsii_.MemberMethod{JsiiMethod: "withSessionTags", GoMethod: "WithSessionTags"},
 		},
 		func() interface{} {
 			j := jsiiProxy_CanonicalUserPrincipal{}
@@ -847,6 +900,7 @@ func init() {
 		reflect.TypeOf((*CompositePrincipal)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addPrincipals", GoMethod: "AddPrincipals"},
+			_jsii_.MemberMethod{JsiiMethod: "addToAssumeRolePolicy", GoMethod: "AddToAssumeRolePolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "addToPolicy", GoMethod: "AddToPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "addToPrincipalPolicy", GoMethod: "AddToPrincipalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "assumeRoleAction", GoGetter: "AssumeRoleAction"},
@@ -856,6 +910,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "toJSON", GoMethod: "ToJSON"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberMethod{JsiiMethod: "withConditions", GoMethod: "WithConditions"},
+			_jsii_.MemberMethod{JsiiMethod: "withSessionTags", GoMethod: "WithSessionTags"},
 		},
 		func() interface{} {
 			j := jsiiProxy_CompositePrincipal{}
@@ -875,6 +930,7 @@ func init() {
 		"monocdk.aws_iam.FederatedPrincipal",
 		reflect.TypeOf((*FederatedPrincipal)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addToAssumeRolePolicy", GoMethod: "AddToAssumeRolePolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "addToPolicy", GoMethod: "AddToPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "addToPrincipalPolicy", GoMethod: "AddToPrincipalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "assumeRoleAction", GoGetter: "AssumeRoleAction"},
@@ -886,6 +942,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "toJSON", GoMethod: "ToJSON"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberMethod{JsiiMethod: "withConditions", GoMethod: "WithConditions"},
+			_jsii_.MemberMethod{JsiiMethod: "withSessionTags", GoMethod: "WithSessionTags"},
 		},
 		func() interface{} {
 			j := jsiiProxy_FederatedPrincipal{}
@@ -968,6 +1025,41 @@ func init() {
 		reflect.TypeOf((*GroupProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterInterface(
+		"monocdk.aws_iam.IAccessKey",
+		reflect.TypeOf((*IAccessKey)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "accessKeyId", GoGetter: "AccessKeyId"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "secretAccessKey", GoGetter: "SecretAccessKey"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IAccessKey{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"monocdk.aws_iam.IAssumeRolePrincipal",
+		reflect.TypeOf((*IAssumeRolePrincipal)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addToAssumeRolePolicy", GoMethod: "AddToAssumeRolePolicy"},
+			_jsii_.MemberMethod{JsiiMethod: "addToPolicy", GoMethod: "AddToPolicy"},
+			_jsii_.MemberMethod{JsiiMethod: "addToPrincipalPolicy", GoMethod: "AddToPrincipalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "assumeRoleAction", GoGetter: "AssumeRoleAction"},
+			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
+			_jsii_.MemberProperty{JsiiProperty: "policyFragment", GoGetter: "PolicyFragment"},
+			_jsii_.MemberProperty{JsiiProperty: "principalAccount", GoGetter: "PrincipalAccount"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IAssumeRolePrincipal{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IPrincipal)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"monocdk.aws_iam.IGrantable",
 		reflect.TypeOf((*IGrantable)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -984,6 +1076,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addManagedPolicy", GoMethod: "AddManagedPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "addToPolicy", GoMethod: "AddToPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "addToPrincipalPolicy", GoMethod: "AddToPrincipalPolicy"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "assumeRoleAction", GoGetter: "AssumeRoleAction"},
 			_jsii_.MemberMethod{JsiiMethod: "attachInlinePolicy", GoMethod: "AttachInlinePolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
@@ -1008,6 +1101,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addManagedPolicy", GoMethod: "AddManagedPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "addToPolicy", GoMethod: "AddToPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "addToPrincipalPolicy", GoMethod: "AddToPrincipalPolicy"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "assumeRoleAction", GoGetter: "AssumeRoleAction"},
 			_jsii_.MemberMethod{JsiiMethod: "attachInlinePolicy", GoMethod: "AttachInlinePolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
@@ -1038,6 +1132,7 @@ func init() {
 		"monocdk.aws_iam.IOpenIdConnectProvider",
 		reflect.TypeOf((*IOpenIdConnectProvider)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "openIdConnectProviderArn", GoGetter: "OpenIdConnectProviderArn"},
@@ -1054,6 +1149,7 @@ func init() {
 		"monocdk.aws_iam.IPolicy",
 		reflect.TypeOf((*IPolicy)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "policyName", GoGetter: "PolicyName"},
@@ -1087,6 +1183,7 @@ func init() {
 		reflect.TypeOf((*IResourceWithPolicy)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addToResourcePolicy", GoMethod: "AddToResourcePolicy"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
@@ -1104,6 +1201,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addManagedPolicy", GoMethod: "AddManagedPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "addToPolicy", GoMethod: "AddToPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "addToPrincipalPolicy", GoMethod: "AddToPrincipalPolicy"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "assumeRoleAction", GoGetter: "AssumeRoleAction"},
 			_jsii_.MemberMethod{JsiiMethod: "attachInlinePolicy", GoMethod: "AttachInlinePolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
@@ -1127,6 +1225,7 @@ func init() {
 		"monocdk.aws_iam.ISamlProvider",
 		reflect.TypeOf((*ISamlProvider)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "samlProviderArn", GoGetter: "SamlProviderArn"},
@@ -1146,6 +1245,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addToGroup", GoMethod: "AddToGroup"},
 			_jsii_.MemberMethod{JsiiMethod: "addToPolicy", GoMethod: "AddToPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "addToPrincipalPolicy", GoMethod: "AddToPrincipalPolicy"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "assumeRoleAction", GoGetter: "AssumeRoleAction"},
 			_jsii_.MemberMethod{JsiiMethod: "attachInlinePolicy", GoMethod: "AttachInlinePolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
@@ -1251,6 +1351,7 @@ func init() {
 		"monocdk.aws_iam.OpenIdConnectPrincipal",
 		reflect.TypeOf((*OpenIdConnectPrincipal)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addToAssumeRolePolicy", GoMethod: "AddToAssumeRolePolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "addToPolicy", GoMethod: "AddToPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "addToPrincipalPolicy", GoMethod: "AddToPrincipalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "assumeRoleAction", GoGetter: "AssumeRoleAction"},
@@ -1262,6 +1363,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "toJSON", GoMethod: "ToJSON"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberMethod{JsiiMethod: "withConditions", GoMethod: "WithConditions"},
+			_jsii_.MemberMethod{JsiiMethod: "withSessionTags", GoMethod: "WithSessionTags"},
 		},
 		func() interface{} {
 			j := jsiiProxy_OpenIdConnectPrincipal{}
@@ -1306,6 +1408,7 @@ func init() {
 		"monocdk.aws_iam.OrganizationPrincipal",
 		reflect.TypeOf((*OrganizationPrincipal)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addToAssumeRolePolicy", GoMethod: "AddToAssumeRolePolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "addToPolicy", GoMethod: "AddToPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "addToPrincipalPolicy", GoMethod: "AddToPrincipalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "assumeRoleAction", GoGetter: "AssumeRoleAction"},
@@ -1316,6 +1419,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "toJSON", GoMethod: "ToJSON"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberMethod{JsiiMethod: "withConditions", GoMethod: "WithConditions"},
+			_jsii_.MemberMethod{JsiiMethod: "withSessionTags", GoMethod: "WithSessionTags"},
 		},
 		func() interface{} {
 			j := jsiiProxy_OrganizationPrincipal{}
@@ -1417,9 +1521,11 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPrincipals", GoMethod: "AddPrincipals"},
 			_jsii_.MemberMethod{JsiiMethod: "addResources", GoMethod: "AddResources"},
 			_jsii_.MemberMethod{JsiiMethod: "addServicePrincipal", GoMethod: "AddServicePrincipal"},
+			_jsii_.MemberMethod{JsiiMethod: "copy", GoMethod: "Copy"},
 			_jsii_.MemberProperty{JsiiProperty: "effect", GoGetter: "Effect"},
 			_jsii_.MemberProperty{JsiiProperty: "hasPrincipal", GoGetter: "HasPrincipal"},
 			_jsii_.MemberProperty{JsiiProperty: "hasResource", GoGetter: "HasResource"},
+			_jsii_.MemberProperty{JsiiProperty: "principals", GoGetter: "Principals"},
 			_jsii_.MemberProperty{JsiiProperty: "sid", GoGetter: "Sid"},
 			_jsii_.MemberMethod{JsiiMethod: "toJSON", GoMethod: "ToJSON"},
 			_jsii_.MemberMethod{JsiiMethod: "toStatementJson", GoMethod: "ToStatementJson"},
@@ -1440,6 +1546,7 @@ func init() {
 		"monocdk.aws_iam.PrincipalBase",
 		reflect.TypeOf((*PrincipalBase)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addToAssumeRolePolicy", GoMethod: "AddToAssumeRolePolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "addToPolicy", GoMethod: "AddToPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "addToPrincipalPolicy", GoMethod: "AddToPrincipalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "assumeRoleAction", GoGetter: "AssumeRoleAction"},
@@ -1449,10 +1556,11 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "toJSON", GoMethod: "ToJSON"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberMethod{JsiiMethod: "withConditions", GoMethod: "WithConditions"},
+			_jsii_.MemberMethod{JsiiMethod: "withSessionTags", GoMethod: "WithSessionTags"},
 		},
 		func() interface{} {
 			j := jsiiProxy_PrincipalBase{}
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IPrincipal)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IAssumeRolePrincipal)
 			return &j
 		},
 	)
@@ -1473,18 +1581,22 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addCondition", GoMethod: "AddCondition"},
 			_jsii_.MemberMethod{JsiiMethod: "addConditions", GoMethod: "AddConditions"},
+			_jsii_.MemberMethod{JsiiMethod: "addToAssumeRolePolicy", GoMethod: "AddToAssumeRolePolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "addToPolicy", GoMethod: "AddToPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "addToPrincipalPolicy", GoMethod: "AddToPrincipalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "assumeRoleAction", GoGetter: "AssumeRoleAction"},
 			_jsii_.MemberProperty{JsiiProperty: "conditions", GoGetter: "Conditions"},
 			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
 			_jsii_.MemberProperty{JsiiProperty: "policyFragment", GoGetter: "PolicyFragment"},
+			_jsii_.MemberProperty{JsiiProperty: "principalAccount", GoGetter: "PrincipalAccount"},
 			_jsii_.MemberMethod{JsiiMethod: "toJSON", GoMethod: "ToJSON"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "withConditions", GoMethod: "WithConditions"},
+			_jsii_.MemberMethod{JsiiMethod: "withSessionTags", GoMethod: "WithSessionTags"},
 		},
 		func() interface{} {
 			j := jsiiProxy_PrincipalWithConditions{}
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IPrincipal)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_PrincipalBase)
 			return &j
 		},
 	)
@@ -1539,6 +1651,7 @@ func init() {
 		"monocdk.aws_iam.SamlConsolePrincipal",
 		reflect.TypeOf((*SamlConsolePrincipal)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addToAssumeRolePolicy", GoMethod: "AddToAssumeRolePolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "addToPolicy", GoMethod: "AddToPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "addToPrincipalPolicy", GoMethod: "AddToPrincipalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "assumeRoleAction", GoGetter: "AssumeRoleAction"},
@@ -1550,6 +1663,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "toJSON", GoMethod: "ToJSON"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberMethod{JsiiMethod: "withConditions", GoMethod: "WithConditions"},
+			_jsii_.MemberMethod{JsiiMethod: "withSessionTags", GoMethod: "WithSessionTags"},
 		},
 		func() interface{} {
 			j := jsiiProxy_SamlConsolePrincipal{}
@@ -1571,6 +1685,7 @@ func init() {
 		"monocdk.aws_iam.SamlPrincipal",
 		reflect.TypeOf((*SamlPrincipal)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addToAssumeRolePolicy", GoMethod: "AddToAssumeRolePolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "addToPolicy", GoMethod: "AddToPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "addToPrincipalPolicy", GoMethod: "AddToPrincipalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "assumeRoleAction", GoGetter: "AssumeRoleAction"},
@@ -1582,6 +1697,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "toJSON", GoMethod: "ToJSON"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberMethod{JsiiMethod: "withConditions", GoMethod: "WithConditions"},
+			_jsii_.MemberMethod{JsiiMethod: "withSessionTags", GoMethod: "WithSessionTags"},
 		},
 		func() interface{} {
 			j := jsiiProxy_SamlPrincipal{}
@@ -1625,6 +1741,7 @@ func init() {
 		"monocdk.aws_iam.ServicePrincipal",
 		reflect.TypeOf((*ServicePrincipal)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addToAssumeRolePolicy", GoMethod: "AddToAssumeRolePolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "addToPolicy", GoMethod: "AddToPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "addToPrincipalPolicy", GoMethod: "AddToPrincipalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "assumeRoleAction", GoGetter: "AssumeRoleAction"},
@@ -1635,6 +1752,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "toJSON", GoMethod: "ToJSON"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberMethod{JsiiMethod: "withConditions", GoMethod: "WithConditions"},
+			_jsii_.MemberMethod{JsiiMethod: "withSessionTags", GoMethod: "WithSessionTags"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ServicePrincipal{}
@@ -1645,6 +1763,50 @@ func init() {
 	_jsii_.RegisterStruct(
 		"monocdk.aws_iam.ServicePrincipalOpts",
 		reflect.TypeOf((*ServicePrincipalOpts)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"monocdk.aws_iam.SessionTagsPrincipal",
+		reflect.TypeOf((*SessionTagsPrincipal)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addToAssumeRolePolicy", GoMethod: "AddToAssumeRolePolicy"},
+			_jsii_.MemberMethod{JsiiMethod: "addToPolicy", GoMethod: "AddToPolicy"},
+			_jsii_.MemberMethod{JsiiMethod: "addToPrincipalPolicy", GoMethod: "AddToPrincipalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "assumeRoleAction", GoGetter: "AssumeRoleAction"},
+			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
+			_jsii_.MemberProperty{JsiiProperty: "policyFragment", GoGetter: "PolicyFragment"},
+			_jsii_.MemberProperty{JsiiProperty: "principalAccount", GoGetter: "PrincipalAccount"},
+			_jsii_.MemberMethod{JsiiMethod: "toJSON", GoMethod: "ToJSON"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "withConditions", GoMethod: "WithConditions"},
+			_jsii_.MemberMethod{JsiiMethod: "withSessionTags", GoMethod: "WithSessionTags"},
+		},
+		func() interface{} {
+			j := jsiiProxy_SessionTagsPrincipal{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_PrincipalBase)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
+		"monocdk.aws_iam.StarPrincipal",
+		reflect.TypeOf((*StarPrincipal)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addToAssumeRolePolicy", GoMethod: "AddToAssumeRolePolicy"},
+			_jsii_.MemberMethod{JsiiMethod: "addToPolicy", GoMethod: "AddToPolicy"},
+			_jsii_.MemberMethod{JsiiMethod: "addToPrincipalPolicy", GoMethod: "AddToPrincipalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "assumeRoleAction", GoGetter: "AssumeRoleAction"},
+			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
+			_jsii_.MemberProperty{JsiiProperty: "policyFragment", GoGetter: "PolicyFragment"},
+			_jsii_.MemberProperty{JsiiProperty: "principalAccount", GoGetter: "PrincipalAccount"},
+			_jsii_.MemberMethod{JsiiMethod: "toJSON", GoMethod: "ToJSON"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "withConditions", GoMethod: "WithConditions"},
+			_jsii_.MemberMethod{JsiiMethod: "withSessionTags", GoMethod: "WithSessionTags"},
+		},
+		func() interface{} {
+			j := jsiiProxy_StarPrincipal{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_PrincipalBase)
+			return &j
+		},
 	)
 	_jsii_.RegisterClass(
 		"monocdk.aws_iam.UnknownPrincipal",
@@ -1718,6 +1880,7 @@ func init() {
 		"monocdk.aws_iam.WebIdentityPrincipal",
 		reflect.TypeOf((*WebIdentityPrincipal)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addToAssumeRolePolicy", GoMethod: "AddToAssumeRolePolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "addToPolicy", GoMethod: "AddToPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "addToPrincipalPolicy", GoMethod: "AddToPrincipalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "assumeRoleAction", GoGetter: "AssumeRoleAction"},
@@ -1729,11 +1892,16 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "toJSON", GoMethod: "ToJSON"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberMethod{JsiiMethod: "withConditions", GoMethod: "WithConditions"},
+			_jsii_.MemberMethod{JsiiMethod: "withSessionTags", GoMethod: "WithSessionTags"},
 		},
 		func() interface{} {
 			j := jsiiProxy_WebIdentityPrincipal{}
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_FederatedPrincipal)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_iam.WithoutPolicyUpdatesOptions",
+		reflect.TypeOf((*WithoutPolicyUpdatesOptions)(nil)).Elem(),
 	)
 }

@@ -12,7 +12,7 @@ import (
 	"stock-simulator-serverless/src/storage"
 	"time"
 
-	"github.com/aws/aws-sdk-go/aws"
+	"github.com/aws/aws-sdk-go-v2/aws"
 )
 
 var Two Seed = func(l *logic.Logic, s *storage.DdbTable) {
@@ -54,7 +54,7 @@ var Two Seed = func(l *logic.Logic, s *storage.DdbTable) {
 		}
 	}
 
-	// add 5 shares of each company to each user
+	// add 5 shares of each company to each userdao
 	//rite a testtoken for the user1 directly in the database
 	_, err := s.Token.NewToken(ctx, models.Token{
 		Token:     "testtoken",

@@ -3,7 +3,7 @@ package awscloudwatch
 import (
 	"reflect"
 
-	_jsii_ "github.com/aws/jsii-runtime-go"
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
 func init() {
@@ -109,9 +109,11 @@ func init() {
 		"monocdk.aws_cloudwatch.AlarmStatusWidget",
 		reflect.TypeOf((*AlarmStatusWidget)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "copyMetricWarnings", GoMethod: "CopyMetricWarnings"},
 			_jsii_.MemberProperty{JsiiProperty: "height", GoGetter: "Height"},
 			_jsii_.MemberMethod{JsiiMethod: "position", GoMethod: "Position"},
 			_jsii_.MemberMethod{JsiiMethod: "toJson", GoMethod: "ToJson"},
+			_jsii_.MemberProperty{JsiiProperty: "warnings", GoGetter: "Warnings"},
 			_jsii_.MemberProperty{JsiiProperty: "width", GoGetter: "Width"},
 			_jsii_.MemberProperty{JsiiProperty: "x", GoGetter: "X"},
 			_jsii_.MemberProperty{JsiiProperty: "y", GoGetter: "Y"},
@@ -126,13 +128,24 @@ func init() {
 		"monocdk.aws_cloudwatch.AlarmStatusWidgetProps",
 		reflect.TypeOf((*AlarmStatusWidgetProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterEnum(
+		"monocdk.aws_cloudwatch.AlarmStatusWidgetSortBy",
+		reflect.TypeOf((*AlarmStatusWidgetSortBy)(nil)).Elem(),
+		map[string]interface{}{
+			"DEFAULT": AlarmStatusWidgetSortBy_DEFAULT,
+			"STATE_UPDATED_TIMESTAMP": AlarmStatusWidgetSortBy_STATE_UPDATED_TIMESTAMP,
+			"TIMESTAMP": AlarmStatusWidgetSortBy_TIMESTAMP,
+		},
+	)
 	_jsii_.RegisterClass(
 		"monocdk.aws_cloudwatch.AlarmWidget",
 		reflect.TypeOf((*AlarmWidget)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "copyMetricWarnings", GoMethod: "CopyMetricWarnings"},
 			_jsii_.MemberProperty{JsiiProperty: "height", GoGetter: "Height"},
 			_jsii_.MemberMethod{JsiiMethod: "position", GoMethod: "Position"},
 			_jsii_.MemberMethod{JsiiMethod: "toJson", GoMethod: "ToJson"},
+			_jsii_.MemberProperty{JsiiProperty: "warnings", GoGetter: "Warnings"},
 			_jsii_.MemberProperty{JsiiProperty: "width", GoGetter: "Width"},
 			_jsii_.MemberProperty{JsiiProperty: "x", GoGetter: "X"},
 			_jsii_.MemberProperty{JsiiProperty: "y", GoGetter: "Y"},
@@ -252,6 +265,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "metricMathAnomalyDetector", GoGetter: "MetricMathAnomalyDetector"},
 			_jsii_.MemberProperty{JsiiProperty: "metricName", GoGetter: "MetricName"},
 			_jsii_.MemberProperty{JsiiProperty: "namespace", GoGetter: "Namespace"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
@@ -263,6 +277,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
+			_jsii_.MemberProperty{JsiiProperty: "singleMetricAnomalyDetector", GoGetter: "SingleMetricAnomalyDetector"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "stat", GoGetter: "Stat"},
 			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
@@ -287,8 +302,28 @@ func init() {
 		reflect.TypeOf((*CfnAnomalyDetector_DimensionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"monocdk.aws_cloudwatch.CfnAnomalyDetector.MetricDataQueryProperty",
+		reflect.TypeOf((*CfnAnomalyDetector_MetricDataQueryProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_cloudwatch.CfnAnomalyDetector.MetricMathAnomalyDetectorProperty",
+		reflect.TypeOf((*CfnAnomalyDetector_MetricMathAnomalyDetectorProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_cloudwatch.CfnAnomalyDetector.MetricProperty",
+		reflect.TypeOf((*CfnAnomalyDetector_MetricProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_cloudwatch.CfnAnomalyDetector.MetricStatProperty",
+		reflect.TypeOf((*CfnAnomalyDetector_MetricStatProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"monocdk.aws_cloudwatch.CfnAnomalyDetector.RangeProperty",
 		reflect.TypeOf((*CfnAnomalyDetector_RangeProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_cloudwatch.CfnAnomalyDetector.SingleMetricAnomalyDetectorProperty",
+		reflect.TypeOf((*CfnAnomalyDetector_SingleMetricAnomalyDetectorProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_cloudwatch.CfnAnomalyDetectorProps",
@@ -487,6 +522,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "roleArn", GoGetter: "RoleArn"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "statisticsConfigurations", GoGetter: "StatisticsConfigurations"},
 			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
@@ -504,6 +540,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"monocdk.aws_cloudwatch.CfnMetricStream.MetricStreamFilterProperty",
 		reflect.TypeOf((*CfnMetricStream_MetricStreamFilterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_cloudwatch.CfnMetricStream.MetricStreamStatisticsConfigurationProperty",
+		reflect.TypeOf((*CfnMetricStream_MetricStreamStatisticsConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_cloudwatch.CfnMetricStream.MetricStreamStatisticsMetricProperty",
+		reflect.TypeOf((*CfnMetricStream_MetricStreamStatisticsMetricProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_cloudwatch.CfnMetricStreamProps",
@@ -524,6 +568,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "height", GoGetter: "Height"},
 			_jsii_.MemberMethod{JsiiMethod: "position", GoMethod: "Position"},
 			_jsii_.MemberMethod{JsiiMethod: "toJson", GoMethod: "ToJson"},
+			_jsii_.MemberProperty{JsiiProperty: "widgets", GoGetter: "Widgets"},
 			_jsii_.MemberProperty{JsiiProperty: "width", GoGetter: "Width"},
 		},
 		func() interface{} {
@@ -592,9 +637,11 @@ func init() {
 		"monocdk.aws_cloudwatch.ConcreteWidget",
 		reflect.TypeOf((*ConcreteWidget)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "copyMetricWarnings", GoMethod: "CopyMetricWarnings"},
 			_jsii_.MemberProperty{JsiiProperty: "height", GoGetter: "Height"},
 			_jsii_.MemberMethod{JsiiMethod: "position", GoMethod: "Position"},
 			_jsii_.MemberMethod{JsiiMethod: "toJson", GoMethod: "ToJson"},
+			_jsii_.MemberProperty{JsiiProperty: "warnings", GoGetter: "Warnings"},
 			_jsii_.MemberProperty{JsiiProperty: "width", GoGetter: "Width"},
 			_jsii_.MemberProperty{JsiiProperty: "x", GoGetter: "X"},
 			_jsii_.MemberProperty{JsiiProperty: "y", GoGetter: "Y"},
@@ -650,9 +697,11 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addLeftMetric", GoMethod: "AddLeftMetric"},
 			_jsii_.MemberMethod{JsiiMethod: "addRightMetric", GoMethod: "AddRightMetric"},
+			_jsii_.MemberMethod{JsiiMethod: "copyMetricWarnings", GoMethod: "CopyMetricWarnings"},
 			_jsii_.MemberProperty{JsiiProperty: "height", GoGetter: "Height"},
 			_jsii_.MemberMethod{JsiiMethod: "position", GoMethod: "Position"},
 			_jsii_.MemberMethod{JsiiMethod: "toJson", GoMethod: "ToJson"},
+			_jsii_.MemberProperty{JsiiProperty: "warnings", GoGetter: "Warnings"},
 			_jsii_.MemberProperty{JsiiProperty: "width", GoGetter: "Width"},
 			_jsii_.MemberProperty{JsiiProperty: "x", GoGetter: "X"},
 			_jsii_.MemberProperty{JsiiProperty: "y", GoGetter: "Y"},
@@ -686,6 +735,7 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "alarmArn", GoGetter: "AlarmArn"},
 			_jsii_.MemberProperty{JsiiProperty: "alarmName", GoGetter: "AlarmName"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "renderAlarmRule", GoMethod: "RenderAlarmRule"},
@@ -725,6 +775,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "toAlarmConfig", GoMethod: "ToAlarmConfig"},
 			_jsii_.MemberMethod{JsiiMethod: "toGraphConfig", GoMethod: "ToGraphConfig"},
 			_jsii_.MemberMethod{JsiiMethod: "toMetricConfig", GoMethod: "ToMetricConfig"},
+			_jsii_.MemberProperty{JsiiProperty: "warnings", GoGetter: "Warnings"},
 		},
 		func() interface{} {
 			return &jsiiProxy_IMetric{}
@@ -737,6 +788,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "height", GoGetter: "Height"},
 			_jsii_.MemberMethod{JsiiMethod: "position", GoMethod: "Position"},
 			_jsii_.MemberMethod{JsiiMethod: "toJson", GoMethod: "ToJson"},
+			_jsii_.MemberProperty{JsiiProperty: "warnings", GoGetter: "Warnings"},
 			_jsii_.MemberProperty{JsiiProperty: "width", GoGetter: "Width"},
 		},
 		func() interface{} {
@@ -767,9 +819,11 @@ func init() {
 		"monocdk.aws_cloudwatch.LogQueryWidget",
 		reflect.TypeOf((*LogQueryWidget)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "copyMetricWarnings", GoMethod: "CopyMetricWarnings"},
 			_jsii_.MemberProperty{JsiiProperty: "height", GoGetter: "Height"},
 			_jsii_.MemberMethod{JsiiMethod: "position", GoMethod: "Position"},
 			_jsii_.MemberMethod{JsiiMethod: "toJson", GoMethod: "ToJson"},
+			_jsii_.MemberProperty{JsiiProperty: "warnings", GoGetter: "Warnings"},
 			_jsii_.MemberProperty{JsiiProperty: "width", GoGetter: "Width"},
 			_jsii_.MemberProperty{JsiiProperty: "x", GoGetter: "X"},
 			_jsii_.MemberProperty{JsiiProperty: "y", GoGetter: "Y"},
@@ -793,11 +847,14 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "expression", GoGetter: "Expression"},
 			_jsii_.MemberProperty{JsiiProperty: "label", GoGetter: "Label"},
 			_jsii_.MemberProperty{JsiiProperty: "period", GoGetter: "Period"},
+			_jsii_.MemberProperty{JsiiProperty: "searchAccount", GoGetter: "SearchAccount"},
+			_jsii_.MemberProperty{JsiiProperty: "searchRegion", GoGetter: "SearchRegion"},
 			_jsii_.MemberMethod{JsiiMethod: "toAlarmConfig", GoMethod: "ToAlarmConfig"},
 			_jsii_.MemberMethod{JsiiMethod: "toGraphConfig", GoMethod: "ToGraphConfig"},
 			_jsii_.MemberMethod{JsiiMethod: "toMetricConfig", GoMethod: "ToMetricConfig"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "usingMetrics", GoGetter: "UsingMetrics"},
+			_jsii_.MemberProperty{JsiiProperty: "warnings", GoGetter: "Warnings"},
 			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
@@ -893,6 +950,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "height", GoGetter: "Height"},
 			_jsii_.MemberMethod{JsiiMethod: "position", GoMethod: "Position"},
 			_jsii_.MemberMethod{JsiiMethod: "toJson", GoMethod: "ToJson"},
+			_jsii_.MemberProperty{JsiiProperty: "widgets", GoGetter: "Widgets"},
 			_jsii_.MemberProperty{JsiiProperty: "width", GoGetter: "Width"},
 		},
 		func() interface{} {
@@ -914,9 +972,11 @@ func init() {
 		"monocdk.aws_cloudwatch.SingleValueWidget",
 		reflect.TypeOf((*SingleValueWidget)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "copyMetricWarnings", GoMethod: "CopyMetricWarnings"},
 			_jsii_.MemberProperty{JsiiProperty: "height", GoGetter: "Height"},
 			_jsii_.MemberMethod{JsiiMethod: "position", GoMethod: "Position"},
 			_jsii_.MemberMethod{JsiiMethod: "toJson", GoMethod: "ToJson"},
+			_jsii_.MemberProperty{JsiiProperty: "warnings", GoGetter: "Warnings"},
 			_jsii_.MemberProperty{JsiiProperty: "width", GoGetter: "Width"},
 			_jsii_.MemberProperty{JsiiProperty: "x", GoGetter: "X"},
 			_jsii_.MemberProperty{JsiiProperty: "y", GoGetter: "Y"},
@@ -965,9 +1025,11 @@ func init() {
 		"monocdk.aws_cloudwatch.TextWidget",
 		reflect.TypeOf((*TextWidget)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "copyMetricWarnings", GoMethod: "CopyMetricWarnings"},
 			_jsii_.MemberProperty{JsiiProperty: "height", GoGetter: "Height"},
 			_jsii_.MemberMethod{JsiiMethod: "position", GoMethod: "Position"},
 			_jsii_.MemberMethod{JsiiMethod: "toJson", GoMethod: "ToJson"},
+			_jsii_.MemberProperty{JsiiProperty: "warnings", GoGetter: "Warnings"},
 			_jsii_.MemberProperty{JsiiProperty: "width", GoGetter: "Width"},
 			_jsii_.MemberProperty{JsiiProperty: "x", GoGetter: "X"},
 			_jsii_.MemberProperty{JsiiProperty: "y", GoGetter: "Y"},

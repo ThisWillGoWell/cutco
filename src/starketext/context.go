@@ -34,9 +34,9 @@ func ApiGatewayMiddleware(loadToken LoadToken) func(ctx context.Context, request
 				}
 			} else if err != nil {
 				c.Logger.Error("failed to load token", zap.Error(err))
-				return  &events.APIGatewayV2HTTPResponse{
+				return &events.APIGatewayV2HTTPResponse{
 					StatusCode: 500,
-					Body: "something bad happened",
+					Body:       "something bad happened",
 				}
 			}
 
@@ -55,7 +55,7 @@ func HttpMiddleware(loadToken LoadToken, next http.Handler) http.Handler {
 		if r.Body != nil {
 
 			bodyBytes, _ := ioutil.ReadAll(r.Body)
-			_ = r.Body.Close()  //  must close
+			_ = r.Body.Close() //  must close
 			r.Body = ioutil.NopCloser(bytes.NewBuffer(bodyBytes))
 
 			c.Logger = newLogger(c.Logger, "body", string(bodyBytes))
@@ -118,7 +118,7 @@ func LocalLogger(ctx context.Context, with ...interface{}) *zap.SugaredLogger {
 	return c.Logger.With(with...)
 }
 
-// create a new ctx that is authenticated for the user id
+// create a new ctx that is authenticated for the userdao id
 func NewUserAuthed(userID string) context.Context {
 	ctx, c := ExtractCtx(nil)
 	c.AuthedUserID = &userID
@@ -158,7 +158,7 @@ func ExtractCtx(ctx context.Context) (context.Context, *Context) {
 	return ctx, c
 }
 
-// return the id of the user authed on the request
+// return the id of the userdao authed on the request
 func AuthenticatedID(ctx context.Context) (string, bool) {
 	_, c := ExtractCtx(ctx)
 	if c.AuthedUserID == nil {

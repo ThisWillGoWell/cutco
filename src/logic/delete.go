@@ -43,7 +43,7 @@ func (l *Logic) deleteCompany(ctx context.Context, c models.CompanyStruct) error
 		s.Holder.Wallet += c.Value * s.Count
 		_, err = l.storage.UpdateEntry(ctx, s.Holder)
 		if err != nil {
-			logger.Errorw("failed to update user during sell", "user_id", s.Holder.ID, zap.Error(err))
+			logger.Errorw("failed to update userdao during sell", "user_id", s.Holder.ID, zap.Error(err))
 			return err
 		}
 
@@ -74,7 +74,7 @@ func (l *Logic) deleteAccount(ctx context.Context, u *models.PrivateUserStruct) 
 		return err
 	}
 
-	// delete company if the user is CEO of one
+	// delete company if the userdao is CEO of one
 	company, err := l.storage.Company.LoadCompany(ctx, models.ReadCompaniesRequest{
 		OwnerID:      u.User.ID,
 		RequestingID: u.User.ID,
@@ -85,17 +85,17 @@ func (l *Logic) deleteAccount(ctx context.Context, u *models.PrivateUserStruct) 
 	}
 
 	if company != nil {
-		logger.Infow("deleting company the user owns")
+		logger.Infow("deleting company the userdao owns")
 		if err := l.deleteCompany(ctx, *company); err != nil {
 			logger.Errorw("failed to delete company", zap.Error(err))
 			return err
 		}
 	}
 
-	// delete all tokens for the user
+	// delete all tokens for the userdao
 	err = l.storage.DeleteWithMatchingSkPkBeginsWith(ctx, *u.PK(), models.TokenPrefix)
 
-	// return all shares the user owned
+	// return all shares the userdao owned
 	shares, err := l.storage.Company.LoadShares(ctx, models.ReadSharesRequest{
 		RequestingID: u.User.ID,
 		HolderID:     u.User.ID,
@@ -107,7 +107,7 @@ func (l *Logic) deleteAccount(ctx context.Context, u *models.PrivateUserStruct) 
 		},
 	})
 	if err != nil {
-		logger.Errorw("failed to load shares during user delete", zap.Error(err))
+		logger.Errorw("failed to load shares during userdao delete", zap.Error(err))
 		return err
 	}
 	for _, s := range shares {
@@ -119,13 +119,13 @@ func (l *Logic) deleteAccount(ctx context.Context, u *models.PrivateUserStruct) 
 		}
 	}
 
-	// delete the user and anything under their pk
+	// delete the userdao and anything under their pk
 	err = l.storage.DeleteWithMatchingPK(ctx, *u.PK())
 	if err != nil {
-		logger.Errorw("failed to delete user", zap.Error(err))
+		logger.Errorw("failed to delete userdao", zap.Error(err))
 		return err
 	}
-	logger.Infow("user deleted")
+	logger.Infow("userdao deleted")
 	return nil
 
 }

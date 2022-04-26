@@ -16,24 +16,9 @@ type Badge {
     description: String!
 
     """
-    The url for the picture
+    The url for the badge
     """
     pictureUrl: String
-
-    """
-    The number of points the badge is worth
-    """
-    points: Int!
-
-    """
-    When was the badge created at
-    """
-    createdAt: Time!
-
-    """
-    When was the badge award at
-    """
-    awardedAt: Time!
 
     """
     The users who hold the badge
@@ -48,14 +33,10 @@ type Badge {
 }
 
 enum BadgeType {
-    """
-    a merit badge is one created by camp staff
-    """
-    MERIT
-    """
-    community badge is created by campers
-    """
-    COMMUNITY
+    GENERIC
+    NORMAL_CHALLENGE
+    ELITE_CHALLENGE
+    END_OF_CAMP_REWARD
 }
 
 type AwardBadgeInput {
@@ -64,17 +45,8 @@ type AwardBadgeInput {
     """
     badgeID: ID!
 
-}
-
-
-type CreateBadgeRequest {
     """
-    The badge info
+    what is the user that is getting the badge
     """
-    badgeProtoType: Badge!
-
-    """
-    the upload photo id to use for the badge
-    """
-    photoID: String!
+    camper: ID!
 }

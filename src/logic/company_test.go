@@ -60,7 +60,7 @@ func TestCompanyLogic_Trade(t *testing.T) {
 	})
 	assert.NoError(t, err)
 	assert.Equal(t, 10, share.Count)
-	// the user should be broke
+	// the userdao should be broke
 	user, err = logic.storage.Users.LoadUser(ctx, models.ReadUsersRequest{
 		UserID: user.ID,
 		Selects: selection.User{

@@ -7,8 +7,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/ThisWillGoWell/saw/config"
 	"github.com/TylerBrock/colorjson"
+	"github.com/TylerBrock/saw/config"
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/credentials/stscreds"
 	"github.com/aws/aws-sdk-go/aws/session"
@@ -111,7 +111,8 @@ func (b *Blade) GetEvents() {
 	}
 }
 
-func (b *Blade) StreamEventsWithCancel(cancel chan interface{} ){
+// StreamEvents continuously prints log events to the console
+func (b *Blade) StreamEvents() {
 	var lastSeenTime *int64
 	var seenEventIDs map[string]bool
 	formatter := b.output.Formatter()
@@ -150,8 +151,7 @@ func (b *Blade) StreamEventsWithCancel(cancel chan interface{} ){
 		return !lastPage
 	}
 
-	run := true
-	for run {
+	for {
 		err := b.cwl.FilterLogEventsPages(input, handlePage)
 		if err != nil {
 			fmt.Println("Error", err)
@@ -160,17 +160,8 @@ func (b *Blade) StreamEventsWithCancel(cancel chan interface{} ){
 		if lastSeenTime != nil {
 			input.SetStartTime(*lastSeenTime)
 		}
-		select {
-		case <- time.After(time.Second):
-			continue
-		case <-cancel:
-			run = false
-		}
+		time.Sleep(1 * time.Second)
 	}
-}
-// StreamEvents continuously prints log events to the console
-func (b *Blade) StreamEvents() {
-	b.StreamEventsWithCancel(make(chan interface{}))
 }
 
 // formatEvent returns a CloudWatch log event as a formatted string using the provided formatter

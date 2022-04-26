@@ -7,7 +7,6 @@ import (
 
 	"github.com/99designs/gqlgen/codegen/config"
 	"github.com/99designs/gqlgen/codegen/templates"
-	"github.com/pkg/errors"
 	"github.com/vektah/gqlparser/v2/ast"
 )
 
@@ -26,7 +25,7 @@ type FieldArgument struct {
 	Value         interface{} // value set in Data
 }
 
-//ImplDirectives get not Builtin and location ARGUMENT_DEFINITION directive
+// ImplDirectives get not Builtin and location ARGUMENT_DEFINITION directive
 func (f *FieldArgument) ImplDirectives() []*Directive {
 	d := make([]*Directive, 0)
 	for i := range f.Directives {
@@ -67,24 +66,28 @@ func (b *builder) buildArg(obj *Object, arg *ast.ArgumentDefinition) (*FieldArgu
 	if arg.DefaultValue != nil {
 		newArg.Default, err = arg.DefaultValue.Value(nil)
 		if err != nil {
-			return nil, errors.Errorf("default value is not valid: %s", err.Error())
+			return nil, fmt.Errorf("default value is not valid: %w", err)
 		}
 	}
 
 	return &newArg, nil
 }
 
-func (b *builder) bindArgs(field *Field, params *types.Tuple) error {
-	var newArgs []*FieldArgument
-
+func (b *builder) bindArgs(field *Field, sig *types.Signature, params *types.Tuple) ([]*FieldArgument, error) {
+	n := params.Len()
+	newArgs := make([]*FieldArgument, 0, len(field.Args))
+	// Accept variadic methods (i.e. have optional parameters).
+	if params.Len() > len(field.Args) && sig.Variadic() {
+		n = len(field.Args)
+	}
 nextArg:
-	for j := 0; j < params.Len(); j++ {
+	for j := 0; j < n; j++ {
 		param := params.At(j)
 		for _, oldArg := range field.Args {
 			if strings.EqualFold(oldArg.Name, param.Name()) {
 				tr, err := b.Binder.TypeReference(oldArg.Type, param.Type())
 				if err != nil {
-					return err
+					return nil, err
 				}
 				oldArg.TypeReference = tr
 
@@ -94,11 +97,10 @@ nextArg:
 		}
 
 		// no matching arg found, abort
-		return fmt.Errorf("arg %s not in schema", param.Name())
+		return nil, fmt.Errorf("arg %s not in schema", param.Name())
 	}
 
-	field.Args = newArgs
-	return nil
+	return newArgs, nil
 }
 
 func (a *Data) Args() map[string][]*FieldArgument {
@@ -111,7 +113,7 @@ func (a *Data) Args() map[string][]*FieldArgument {
 		}
 	}
 
-	for _, d := range a.Directives {
+	for _, d := range a.Directives() {
 		if len(d.Args) > 0 {
 			ret[d.ArgsFunc()] = d.Args
 		}

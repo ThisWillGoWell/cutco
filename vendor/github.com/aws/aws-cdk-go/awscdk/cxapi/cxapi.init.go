@@ -3,7 +3,7 @@ package cxapi
 import (
 	"reflect"
 
-	_jsii_ "github.com/aws/jsii-runtime-go"
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
 func init() {
@@ -20,6 +20,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "dependencies", GoGetter: "Dependencies"},
 			_jsii_.MemberProperty{JsiiProperty: "file", GoGetter: "File"},
 			_jsii_.MemberMethod{JsiiMethod: "findMetadataByType", GoMethod: "FindMetadataByType"},
+			_jsii_.MemberProperty{JsiiProperty: "hierarchicalId", GoGetter: "HierarchicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "id", GoGetter: "Id"},
 			_jsii_.MemberProperty{JsiiProperty: "manifest", GoGetter: "Manifest"},
 			_jsii_.MemberProperty{JsiiProperty: "messages", GoGetter: "Messages"},
@@ -42,6 +43,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "assembly", GoGetter: "Assembly"},
 			_jsii_.MemberProperty{JsiiProperty: "dependencies", GoGetter: "Dependencies"},
 			_jsii_.MemberMethod{JsiiMethod: "findMetadataByType", GoMethod: "FindMetadataByType"},
+			_jsii_.MemberProperty{JsiiProperty: "hierarchicalId", GoGetter: "HierarchicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "id", GoGetter: "Id"},
 			_jsii_.MemberProperty{JsiiProperty: "manifest", GoGetter: "Manifest"},
 			_jsii_.MemberProperty{JsiiProperty: "messages", GoGetter: "Messages"},
@@ -65,6 +67,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "nestedAssemblies", GoGetter: "NestedAssemblies"},
 			_jsii_.MemberProperty{JsiiProperty: "runtime", GoGetter: "Runtime"},
 			_jsii_.MemberProperty{JsiiProperty: "stacks", GoGetter: "Stacks"},
+			_jsii_.MemberProperty{JsiiProperty: "stacksRecursively", GoGetter: "StacksRecursively"},
 			_jsii_.MemberMethod{JsiiMethod: "tree", GoMethod: "Tree"},
 			_jsii_.MemberMethod{JsiiMethod: "tryGetArtifact", GoMethod: "TryGetArtifact"},
 			_jsii_.MemberProperty{JsiiProperty: "version", GoGetter: "Version"},
@@ -99,13 +102,16 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "assembly", GoGetter: "Assembly"},
 			_jsii_.MemberProperty{JsiiProperty: "assets", GoGetter: "Assets"},
 			_jsii_.MemberProperty{JsiiProperty: "assumeRoleArn", GoGetter: "AssumeRoleArn"},
+			_jsii_.MemberProperty{JsiiProperty: "assumeRoleExternalId", GoGetter: "AssumeRoleExternalId"},
 			_jsii_.MemberProperty{JsiiProperty: "bootstrapStackVersionSsmParameter", GoGetter: "BootstrapStackVersionSsmParameter"},
 			_jsii_.MemberProperty{JsiiProperty: "cloudFormationExecutionRoleArn", GoGetter: "CloudFormationExecutionRoleArn"},
 			_jsii_.MemberProperty{JsiiProperty: "dependencies", GoGetter: "Dependencies"},
 			_jsii_.MemberProperty{JsiiProperty: "displayName", GoGetter: "DisplayName"},
 			_jsii_.MemberProperty{JsiiProperty: "environment", GoGetter: "Environment"},
 			_jsii_.MemberMethod{JsiiMethod: "findMetadataByType", GoMethod: "FindMetadataByType"},
+			_jsii_.MemberProperty{JsiiProperty: "hierarchicalId", GoGetter: "HierarchicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "id", GoGetter: "Id"},
+			_jsii_.MemberProperty{JsiiProperty: "lookupRole", GoGetter: "LookupRole"},
 			_jsii_.MemberProperty{JsiiProperty: "manifest", GoGetter: "Manifest"},
 			_jsii_.MemberProperty{JsiiProperty: "messages", GoGetter: "Messages"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
@@ -119,6 +125,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "templateFile", GoGetter: "TemplateFile"},
 			_jsii_.MemberProperty{JsiiProperty: "templateFullPath", GoGetter: "TemplateFullPath"},
 			_jsii_.MemberProperty{JsiiProperty: "terminationProtection", GoGetter: "TerminationProtection"},
+			_jsii_.MemberProperty{JsiiProperty: "validateOnSynth", GoGetter: "ValidateOnSynth"},
 		},
 		func() interface{} {
 			j := jsiiProxy_CloudFormationStackArtifact{}
@@ -167,6 +174,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"monocdk.cx_api.KeyContextResponse",
+		reflect.TypeOf((*KeyContextResponse)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"monocdk.cx_api.LoadBalancerContextResponse",
 		reflect.TypeOf((*LoadBalancerContextResponse)(nil)).Elem(),
 	)
@@ -204,6 +215,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "displayName", GoGetter: "DisplayName"},
 			_jsii_.MemberMethod{JsiiMethod: "findMetadataByType", GoMethod: "FindMetadataByType"},
 			_jsii_.MemberProperty{JsiiProperty: "fullPath", GoGetter: "FullPath"},
+			_jsii_.MemberProperty{JsiiProperty: "hierarchicalId", GoGetter: "HierarchicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "id", GoGetter: "Id"},
 			_jsii_.MemberProperty{JsiiProperty: "manifest", GoGetter: "Manifest"},
 			_jsii_.MemberProperty{JsiiProperty: "messages", GoGetter: "Messages"},
@@ -244,6 +256,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "dependencies", GoGetter: "Dependencies"},
 			_jsii_.MemberProperty{JsiiProperty: "file", GoGetter: "File"},
 			_jsii_.MemberMethod{JsiiMethod: "findMetadataByType", GoMethod: "FindMetadataByType"},
+			_jsii_.MemberProperty{JsiiProperty: "hierarchicalId", GoGetter: "HierarchicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "id", GoGetter: "Id"},
 			_jsii_.MemberProperty{JsiiProperty: "manifest", GoGetter: "Manifest"},
 			_jsii_.MemberProperty{JsiiProperty: "messages", GoGetter: "Messages"},

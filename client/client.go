@@ -21,7 +21,7 @@ func NewClient(cli *http.Client, baseURL string, options ...client.HTTPRequestOp
 
 type Query struct {
 	Me        model.MeUser         "json:\"me\" graphql:\"me\""
-	User      *model.User          "json:\"user\" graphql:\"user\""
+	User      *model.User          "json:\"userdao\" graphql:\"userdao\""
 	Users     []*model.User        "json:\"users\" graphql:\"users\""
 	Company   *model.Company       "json:\"company\" graphql:\"company\""
 	Companies []*model.Company     "json:\"companies\" graphql:\"companies\""
@@ -104,7 +104,7 @@ type UpdateMe struct {
 		Me *struct {
 			User struct {
 				ID string "json:\"id\" graphql:\"id\""
-			} "json:\"user\" graphql:\"user\""
+			} "json:\"userdao\" graphql:\"userdao\""
 		} "json:\"me\" graphql:\"me\""
 	} "json:\"updateMe\" graphql:\"updateMe\""
 }
@@ -131,7 +131,7 @@ type ReadChat struct {
 			PaginationKey string    "json:\"paginationKey\" graphql:\"paginationKey\""
 			User          struct {
 				ID string "json:\"id\" graphql:\"id\""
-			} "json:\"user\" graphql:\"user\""
+			} "json:\"userdao\" graphql:\"userdao\""
 		} "json:\"messages\" graphql:\"messages\""
 	} "json:\"chat\" graphql:\"chat\""
 }
@@ -139,7 +139,7 @@ type MyID struct {
 	Me struct {
 		User struct {
 			ID string "json:\"id\" graphql:\"id\""
-		} "json:\"user\" graphql:\"user\""
+		} "json:\"userdao\" graphql:\"userdao\""
 	} "json:\"me\" graphql:\"me\""
 }
 type FullProfile struct {
@@ -173,7 +173,7 @@ type FullProfile struct {
 				} "json:\"company\" graphql:\"company\""
 				Count int64 "json:\"count\" graphql:\"count\""
 			} "json:\"shares\" graphql:\"shares\""
-		} "json:\"user\" graphql:\"user\""
+		} "json:\"userdao\" graphql:\"userdao\""
 	} "json:\"me\" graphql:\"me\""
 }
 
@@ -362,7 +362,7 @@ func (c *Client) DeleteMe(ctx context.Context, httpRequestOptions ...client.HTTP
 const UpdateMeDocument = `mutation UpdateMe ($input: ChangeMeInput!) {
 	updateMe(input: $input) {
 		me {
-			user {
+			userdao {
 				id
 			}
 		}
@@ -419,7 +419,7 @@ const ReadChatDocument = `query ReadChat ($input: ReadChatMessagesInput) {
 			message
 			createdAt
 			paginationKey
-			user {
+			userdao {
 				id
 			}
 		}
@@ -442,7 +442,7 @@ func (c *Client) ReadChat(ctx context.Context, input *model.ReadChatMessagesInpu
 
 const MyIDDocument = `query MyID {
 	me {
-		user {
+		userdao {
 			id
 		}
 	}
@@ -464,7 +464,7 @@ const FullProfileDocument = `query FullProfile {
 	me {
 		email
 		login
-		user {
+		userdao {
 			id
 			name
 			investorType

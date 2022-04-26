@@ -38,6 +38,12 @@ linters:
     - exhaustivestruct
     - errorlint # TODO able this lint
     - forbidigo
+    - cyclop
+    - govet
+    - errname
+    - varnamelen
+    - nilnil
+    - structcheck
   fast: false
 
 issues:
@@ -82,3 +88,6 @@ issues:
       text: "should not use built-in type string as key for value; define your own type to avoid collisions"
       linters:
         - staticcheck
+    - path: clientv2/client_test.go
+      linters:
+        - revive

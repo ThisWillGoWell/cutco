@@ -102,7 +102,7 @@ func (c *companyLogic) GetCompaniesStruct(ctx context.Context, selects selection
 }
 
 func (c *companyLogic) Trade(ctx context.Context, input model.TradeInput) (*model.TradePayload, error) {
-	// load the user
+	// load the userdao
 	user, err := c.LoadAuthedUser(ctx)
 	if err != nil {
 		return nil, err

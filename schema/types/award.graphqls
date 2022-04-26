@@ -1,6 +1,6 @@
 type Award {
     """
-    Badge if the reward came from a badge
+    Challenge if the reward came from a challenge
     """
     badge: Badge
 

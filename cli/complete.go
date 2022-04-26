@@ -29,7 +29,6 @@ func (ct *CommandTool) Complete(d prompt.Document) []prompt.Suggest {
 		validOptions = append(validOptions, prompt.FilterHasPrefix([]prompt.Suggest{
 			{"logs", "view service logs"},
 			{"storage", "query/modify starket storage"},
-
 		}, w, false)...)
 	}
 
@@ -59,7 +58,7 @@ func logsAutocomplete(args []string, current string) []prompt.Suggest {
 		}, current, false)
 	}
 
-	if len(args) > 1  && len(args) % 2 == 1{
+	if len(args) > 1 && len(args)%2 == 1 {
 		return prompt.FilterHasPrefix(
 			[]prompt.Suggest{
 				{"--start", "when to start (absolute or relative) (default -5m)"},
@@ -74,15 +73,15 @@ func deleteAutocomplete(args []string, current string) []prompt.Suggest {
 	if len(args) <= 1 {
 		return prompt.FilterHasPrefix([]prompt.Suggest{
 			{"get-outstanding", "get the outstanding deletion requests for a service id"},
-			{"get-user-status", "get the deletion status for a user-id"},
+			{"get-userdao-status", "get the deletion status for a userdao-id"},
 			{"create-deletion", "create a deletion request"},
 		}, current, false)
 	}
 	switch args[0] {
 	case "get-outstanding":
 		return []prompt.Suggest{{"serviceID", "the service id to get outstanding requests"}}
-	case "get-user-status":
-		return []prompt.Suggest{{"userID", "the user id to get the status for"}}
+	case "get-userdao-status":
+		return []prompt.Suggest{{"userID", "the userdao id to get the status for"}}
 	case "create-deletion":
 		switch len(args[1:]) {
 		case 0:

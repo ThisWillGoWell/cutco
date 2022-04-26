@@ -2,12 +2,13 @@ package s3
 
 import (
 	"context"
+	"cutco-camper/src/starketext"
 	"errors"
+	"github.com/aws/aws-sdk-go-v2/service/s3"
 	"github.com/aws/aws-sdk-go/aws/session"
-	"github.com/aws/aws-sdk-go/service/s3"
-	"github.com/aws/aws-sdk-go/service/s3/s3iface"
+
 	"go.uber.org/zap"
-	"stock-simulator-serverless/src/starketext"
+
 	"time"
 )
 
@@ -23,7 +24,7 @@ type S3Client interface {
 
 type s3ClientImp struct {
 	bucket  *string
-	primary s3iface.S3API
+	primary *s3.Client
 }
 
 func (s *s3ClientImp) GetLatestAppVersion(ctx context.Context) (string, error) {

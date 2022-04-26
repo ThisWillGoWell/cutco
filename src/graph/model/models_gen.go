@@ -42,7 +42,7 @@ type ChatChannel struct {
 	// messages in channel
 	Messages []*ChatMessage `json:"messages"`
 	// other members in the channel
-	// does not reutrn the id of the user
+	// does not reutrn the id of the userdao
 	Members []*User `json:"members"`
 }
 
@@ -50,8 +50,8 @@ type ChatChannel struct {
 type ChatMessage struct {
 	// id of the message
 	ID string `json:"id"`
-	// user who sent the message
-	User *User `json:"user"`
+	// userdao who sent the message
+	User *User `json:"userdao"`
 	// message contents
 	Message string `json:"message"`
 	// when the message was sent
@@ -78,7 +78,7 @@ type Company struct {
 	// company long description
 	Description string `json:"description"`
 	// shares that are owned of this company
-	// comapny -> user relation
+	// comapny -> userdao relation
 	Shares []*Share `json:"shares"`
 	// current value of the shares
 	Value int `json:"value"`
@@ -135,19 +135,19 @@ type LoginInput struct {
 	Password string `json:"password"`
 }
 
-// Things on a user that only they should ever need to know about/have no relation to the game
+// Things on a userdao that only they should ever need to know about/have no relation to the game
 type MeUser struct {
-	// The user that belogs to the user
-	User *User `json:"user"`
-	// The user's current email on file, could be nil
+	// The userdao that belogs to the userdao
+	User *User `json:"userdao"`
+	// The userdao's current email on file, could be nil
 	Email *string `json:"email"`
-	// The user's login
+	// The userdao's login
 	Login string `json:"login"`
 }
 
 // Read chat messages
 type ReadChatMessagesInput struct {
-	// (Optional) read messages just in channel, if empty will return all channels the user is apart of
+	// (Optional) read messages just in channel, if empty will return all channels the userdao is apart of
 	ChannelID *string `json:"channelID"`
 	// the max number of messages to return
 	// default: 5
@@ -160,20 +160,20 @@ type ReadChatMessagesInput struct {
 	PaginationKey *string `json:"paginationKey"`
 }
 
-// Send a chat message to a channel or user
+// Send a chat message to a channel or userdao
 type SendChatInput struct {
 	// Send message to channel id
 	ChannelID *string `json:"channelID"`
-	// if there currently is no channel for a user whisper, you can provide the
-	// user id of the target user, a new channel will be created
+	// if there currently is no channel for a userdao whisper, you can provide the
+	// userdao id of the target userdao, a new channel will be created
 	UserID *string `json:"userID"`
 	// message string to send
 	Message string `json:"message"`
 }
 
-// A peice of a company that a user can own
+// A peice of a company that a userdao can own
 type Share struct {
-	// the amount of shares the user owns
+	// the amount of shares the userdao owns
 	Count int `json:"count"`
 	// the company the share relates too
 	Company *Company `json:"company"`
@@ -194,15 +194,15 @@ type SignupInput struct {
 }
 
 // Buy or sell a stock
-// The company must have open shares, and the user must be able to afford the cost
+// The company must have open shares, and the userdao must be able to afford the cost
 type TradeInput struct {
 	// The ID of the company to buy/sell a stock of
 	CompanyID string `json:"companyID"`
-	// the amount of shares the user wants to buy/sell
+	// the amount of shares the userdao wants to buy/sell
 	// positive amount will result in a buy
 	// negitive amount will result in a sell
 	Amount int `json:"amount"`
-	// the price the user currently thinks the share is at
+	// the price the userdao currently thinks the share is at
 	// must be equal to the current company.value
 	Price int `json:"price"`
 }
@@ -214,7 +214,7 @@ type TradePayload struct {
 }
 
 // a historacal transction on a share
-// created when a user buys or sells a stock
+// created when a userdao buys or sells a stock
 type Transaction struct {
 	// when the transcation took place
 	Time time.Time `json:"time"`
@@ -222,26 +222,26 @@ type Transaction struct {
 	Value int `json:"value"`
 	// the amount of shares bought/sold
 	Count int `json:"count"`
-	// the user who bought/sold the share
-	User *User `json:"user"`
+	// the userdao who bought/sold the share
+	User *User `json:"userdao"`
 }
 
 type User struct {
-	// unique id for the user
+	// unique id for the userdao
 	ID string `json:"id"`
-	// # when was the user last active
+	// # when was the userdao last active
 	LastActiveAt time.Time `json:"lastActiveAt"`
-	// # the name the user is seen in game
+	// # the name the userdao is seen in game
 	Name string `json:"name"`
-	// the description of the user
+	// the description of the userdao
 	Description string `json:"description"`
-	// when was the user created at
+	// when was the userdao created at
 	CreatedAt time.Time `json:"createdAt"`
-	// the company the user owns
+	// the company the userdao owns
 	Company *Company `json:"company"`
-	// the shares a user owns
+	// the shares a userdao owns
 	Shares []*Share `json:"shares"`
-	// the amount of money the user has
+	// the amount of money the userdao has
 	Wallet int `json:"wallet"`
 	// the type of investor
 	InvestorType string `json:"investorType"`

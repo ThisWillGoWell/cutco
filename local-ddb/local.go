@@ -1,6 +1,10 @@
 package local_ddb
 
 import (
+	"github.com/aws/aws-sdk-go-v2/aws"
+	"github.com/aws/aws-sdk-go-v2/config"
+	"github.com/aws/aws-sdk-go-v2/service/dynamodb"
+
 	"context"
 	"fmt"
 	"net"
@@ -11,19 +15,17 @@ import (
 	"strings"
 	"syscall"
 	"time"
-
-	"github.com/aws/aws-sdk-go/aws"
-	"github.com/aws/aws-sdk-go/aws/credentials"
-	"github.com/aws/aws-sdk-go/aws/session"
-	"github.com/aws/aws-sdk-go/service/dynamodb"
 )
 
 var instance *LocalDDB
 
 type LocalDDB struct {
 	process   *exec.Cmd
-	DdbClient *dynamodb.DynamoDB
+	DdbClient *dynamodb.Client
+	address string
 }
+
+
 
 func Instance() *LocalDDB {
 	if instance == nil {
@@ -109,14 +111,24 @@ func running() bool {
 
 }
 
+func (l LocalDDB) ResolveEndpoint(service, region string, options ...interface{}) (aws.Endpoint, error) {
+	return aws.Endpoint{
+		URL: l.address,
+	}, nil
+}
+
+func (local *LocalDDB) Retrieve(ctx context.Context) (aws.Credentials, error) {
+	return aws.Credentials{}, nil
+}
+
 func (local *LocalDDB) Cleanup(input *dynamodb.CreateTableInput) error {
-	result, err := local.DdbClient.ListTables(&dynamodb.ListTablesInput{})
+	result, err := local.DdbClient.ListTables(context.Background(), &dynamodb.ListTablesInput{})
 	if err != nil {
 		return err
 	}
 	for _, t := range result.TableNames {
-		_, err := local.DdbClient.DeleteTable(&dynamodb.DeleteTableInput{
-			TableName: t,
+		_, err := local.DdbClient.DeleteTable(context.Background(), &dynamodb.DeleteTableInput{
+			TableName: &t,
 		})
 		if err != nil {
 			return err
@@ -124,7 +136,7 @@ func (local *LocalDDB) Cleanup(input *dynamodb.CreateTableInput) error {
 	}
 	// make a new table with the new schema if provided
 	if input != nil {
-		_, err = local.DdbClient.CreateTable(input)
+		_, err = local.DdbClient.CreateTable(context.Background(), input)
 		if err != nil {
 			return err
 		}
@@ -149,20 +161,22 @@ func newInLocalDDB() (*LocalDDB, error) {
 
 	address := "http://localhost:9000"
 
-	cfg := &aws.Config{
-		Endpoint:    aws.String(address),
-		Region:      aws.String("us-east-2"),
-		Credentials: credentials.NewStaticCredentials("key", "secret;", ""),
+	cfg, err  := config.LoadDefaultConfig(context.Background(),
+		config.WithEndpointResolverWithOptions(localDdb),
+		config.WithCredentialsProvider(localDdb),
+	)
+
+
+	if err != nil {
+		return nil, err
 	}
-	s, _ := session.NewSession()
-	ddb := dynamodb.New(s, cfg)
-	ddb.Endpoint = address
+	ddb := dynamodb.NewFromConfig(cfg)
 
 	success := false
 	// wait for table to come up
 	for i := 0; i < 20; i++ {
 		ctx, cancel := context.WithTimeout(context.Background(), time.Millisecond*500)
-		_, err := ddb.ListTablesWithContext(ctx, &dynamodb.ListTablesInput{})
+		_, err := ddb.ListTables(ctx, &dynamodb.ListTablesInput{})
 		cancel()
 		if err == nil {
 			success = true

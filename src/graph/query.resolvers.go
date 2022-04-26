@@ -16,7 +16,7 @@ func (r *queryResolver) Me(ctx context.Context) (*model.MeUser, error) {
 
 func (r *queryResolver) User(ctx context.Context, input model.GetUsersInput) (*model.User, error) {
 	if input.UserID == "" {
-		return nil, fmt.Errorf("missing user id")
+		return nil, fmt.Errorf("missing userdao id")
 	}
 	users, err := r.Users(ctx, &input)
 	if err != nil {

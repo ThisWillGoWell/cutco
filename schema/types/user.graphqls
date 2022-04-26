@@ -1,6 +1,6 @@
 
 """
-Things on a user that only they should ever need to know about/have no relation to the game
+Things on a userdao that only they should ever need to know about/have no relation to the game
 """
 type MeUser {
     """
@@ -18,7 +18,7 @@ type MeUser {
 }
 
 """
-A user of camp cutco
+A userdao of camp cutco
 """
 type User {
     """
@@ -29,6 +29,7 @@ type User {
     # when was the user last active
     """
     lastActiveAt: Time!
+
     """
     # the name the user is seen in game
     """
@@ -37,19 +38,32 @@ type User {
     the description of the user
     """
     description: String!
+
+    """
+    Biggest Strength
+    """
+    biggestCampStrength: String!
+
+
+    """
+    What do they enjoy while out on the high waters of the bay
+    """
+    favoriteCampSnack: String!
+
     """
     when was the user created at
     """
     createdAt: Time!
+
     """
-    the badges the user has
+    the challenges the user has completed
     """
-    badges: [Badge!]!
+    challenges: [Challenge!]!
 
     """
     the awards the user has gotten
     """
-    awards: [Award!]!
+    badges: [Badge!]!
 
     """
     the number of points rewarded to the user by camp staff
@@ -65,7 +79,12 @@ type User {
     the last updated location of the user
     Returns null if out of date or unknown
     """
-    location: Location
+    lastKnownLocation: Location
+
+    """
+    s3 bucket location for the campers profile picture
+    """
+    camperProfilePicture: String!
 
 }
 

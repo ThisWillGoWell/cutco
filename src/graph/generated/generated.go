@@ -279,7 +279,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.ChatMessage.PaginationKey(childComplexity), true
 
-	case "ChatMessage.user":
+	case "ChatMessage.userdao":
 		if e.complexity.ChatMessage.User == nil {
 			break
 		}
@@ -384,7 +384,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.MeUser.Login(childComplexity), true
 
-	case "MeUser.user":
+	case "MeUser.userdao":
 		if e.complexity.MeUser.User == nil {
 			break
 		}
@@ -506,7 +506,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Query.Share(childComplexity, args["input"].(*model.GetShareInput)), true
 
-	case "Query.user":
+	case "Query.userdao":
 		if e.complexity.Query.User == nil {
 			break
 		}
@@ -579,7 +579,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Transaction.Time(childComplexity), true
 
-	case "Transaction.user":
+	case "Transaction.userdao":
 		if e.complexity.Transaction.User == nil {
 			break
 		}
@@ -741,7 +741,7 @@ var sources = []*ast.Source{
     login(input: LoginInput!): AuthPayload
 
     """
-    Create a new user and company
+    Create a new userdao and company
     """
     signup(input: SignupInput!): AuthPayload
 
@@ -811,15 +811,15 @@ type DeletePayload {
 	{Name: "schema/query.graphqls", Input: `# API Queries
 type Query {
     """
-    Load inforamtoin about a logged in user
+    Load inforamtoin about a logged in userdao
     """
     me: MeUser!
 
     """
-    Load user by ID
+    Load userdao by ID
     Must provide UserID in GetUserInput
     """
-    user(input: GetUsersInput!): User
+    userdao(input: GetUsersInput!): User
 
     """
     Load many users by IDs, no input will reutrn all users
@@ -847,7 +847,7 @@ type Query {
 
     """
     Read chat messages
-    No input will reutrn all chats user is apart of
+    No input will reutrn all chats userdao is apart of
     """
     chat(input: ReadChatMessagesInput): [ChatChannel!]
 
@@ -864,7 +864,7 @@ Read chat messages
 """
 input ReadChatMessagesInput {
     """
-    (Optional) read messages just in channel, if empty will return all channels the user is apart of
+    (Optional) read messages just in channel, if empty will return all channels the userdao is apart of
     """
     channelID: ID
     """
@@ -887,7 +887,7 @@ input ReadChatMessagesInput {
 }
 
 """
-Send a chat message to a channel or user
+Send a chat message to a channel or userdao
 """
 input SendChatInput {
     """
@@ -895,8 +895,8 @@ input SendChatInput {
     """
     channelID: ID
     """
-    if there currently is no channel for a user whisper, you can provide the
-    user id of the target user, a new channel will be created
+    if there currently is no channel for a userdao whisper, you can provide the
+    userdao id of the target userdao, a new channel will be created
     """
     userID: ID
     """
@@ -923,9 +923,9 @@ type ChatMessage {
     """
     id: ID!
     """
-    user who sent the message
+    userdao who sent the message
     """
-    user: User!
+    userdao: User!
     """
     message contents
     """
@@ -979,7 +979,7 @@ type ChatChannel {
 
     """
     other members in the channel
-    does not reutrn the id of the user
+    does not reutrn the id of the userdao
     """
     members: [User]
 }
@@ -1033,7 +1033,7 @@ input GetShareInput {
 
 """
 Buy or sell a stock
-The company must have open shares, and the user must be able to afford the cost
+The company must have open shares, and the userdao must be able to afford the cost
 """
 input TradeInput {
     """
@@ -1041,13 +1041,13 @@ input TradeInput {
     """
     companyID: ID!
     """
-    the amount of shares the user wants to buy/sell
+    the amount of shares the userdao wants to buy/sell
     positive amount will result in a buy
     negitive amount will result in a sell
     """
     amount: Int!
     """
-    the price the user currently thinks the share is at
+    the price the userdao currently thinks the share is at
     must be equal to the current company.value
     """
     price: Int!
@@ -1097,7 +1097,7 @@ type Company {
     description: String!
     """
     shares that are owned of this company
-    comapny -> user relation
+    comapny -> userdao relation
     """
     shares: [Share!]
     """
@@ -1132,11 +1132,11 @@ type ValueHistory {
 }
 
 """
-A peice of a company that a user can own
+A peice of a company that a userdao can own
 """
 type Share {
     """
-    the amount of shares the user owns
+    the amount of shares the userdao owns
     """
     count: Int!
     """
@@ -1155,7 +1155,7 @@ type Share {
 
 """
 a historacal transction on a share
-created when a user buys or sells a stock
+created when a userdao buys or sells a stock
 """
 type Transaction {
     """
@@ -1171,65 +1171,65 @@ type Transaction {
     """
     count: Int!
     """
-    the user who bought/sold the share
+    the userdao who bought/sold the share
     """
-    user: User!
+    userdao: User!
 }
 
 
 
 `, BuiltIn: false},
 	{Name: "schema/types/time.graphqls", Input: `scalar Time`, BuiltIn: false},
-	{Name: "schema/types/user.graphqls", Input: `
+	{Name: "schema/types/userdao.graphqls", Input: `
 """
-Things on a user that only they should ever need to know about/have no relation to the game
+Things on a userdao that only they should ever need to know about/have no relation to the game
 """
 type MeUser {
     """
-    The user that belogs to the user
+    The userdao that belogs to the userdao
     """
-    user: User!
+    userdao: User!
     """
-    The user's current email on file, could be nil
+    The userdao's current email on file, could be nil
     """
     email: String
     """
-    The user's login
+    The userdao's login
     """
     login: String!
 }
 
 type User {
     """
-    unique id for the user
+    unique id for the userdao
     """
     id: ID!
     """
-    # when was the user last active
+    # when was the userdao last active
     """
     lastActiveAt: Time!
     """
-    # the name the user is seen in game
+    # the name the userdao is seen in game
     """
     name: String!
     """
-    the description of the user
+    the description of the userdao
     """
     description: String!
     """
-    when was the user created at
+    when was the userdao created at
     """
     createdAt: Time!
     """
-    the company the user owns
+    the company the userdao owns
     """
     company: Company
     """
-    the shares a user owns
+    the shares a userdao owns
     """
     shares: [Share]!
     """
-    the amount of money the user has
+    the amount of money the userdao has
     """
     wallet: Int!
 
@@ -5328,7 +5328,7 @@ func (ec *executionContext) _ChatMessage(ctx context.Context, sel ast.SelectionS
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "user":
+		case "userdao":
 			out.Values[i] = ec._ChatMessage_user(ctx, field, obj)
 			if out.Values[i] == graphql.Null {
 				invalids++
@@ -5461,7 +5461,7 @@ func (ec *executionContext) _MeUser(ctx context.Context, sel ast.SelectionSet, o
 		switch field.Name {
 		case "__typename":
 			out.Values[i] = graphql.MarshalString("MeUser")
-		case "user":
+		case "userdao":
 			out.Values[i] = ec._MeUser_user(ctx, field, obj)
 			if out.Values[i] == graphql.Null {
 				invalids++
@@ -5549,7 +5549,7 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 				}
 				return res
 			})
-		case "user":
+		case "userdao":
 			field := field
 			out.Concurrently(i, func() (res graphql.Marshaler) {
 				defer func() {
@@ -5719,7 +5719,7 @@ func (ec *executionContext) _Transaction(ctx context.Context, sel ast.SelectionS
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		case "user":
+		case "userdao":
 			out.Values[i] = ec._Transaction_user(ctx, field, obj)
 			if out.Values[i] == graphql.Null {
 				invalids++

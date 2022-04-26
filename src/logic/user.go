@@ -42,7 +42,7 @@ func (logic *userLogic) LoginUser(ctx context.Context, input model.LoginInput) (
 		return nil, err
 	}
 
-	// load user by login
+	// load userdao by login
 	user, err := logic.storage.Users.LoadPrivateUser(ctx, models.ReadPrivateUsers{
 		Login: input.Login,
 	})
@@ -55,7 +55,7 @@ func (logic *userLogic) LoginUser(ctx context.Context, input model.LoginInput) (
 		return nil, errors.InvalidInputError("password", "invalid password")
 	}
 
-	// create a new token for the user
+	// create a new token for the userdao
 	token, err := logic.storage.Token.NewToken(ctx, models.Token{
 		User:      user.User,
 		CreatedAt: time.Now(),
@@ -144,7 +144,7 @@ func (logic *userLogic) ChangeMe(ctx context.Context, input model.ChangeMeInput)
 		return nil, errors.MissingAuthentication
 	}
 
-	// load the private user
+	// load the private userdao
 	user, err := logic.storage.Users.LoadPrivateUser(ctx, models.ReadPrivateUsers{
 		UserID: userID,
 		Selects: selection.UserPrivate{
@@ -192,14 +192,14 @@ func (logic *userLogic) ChangeMe(ctx context.Context, input model.ChangeMeInput)
 	}, nil
 }
 
-// create a new user in the system
+// create a new userdao in the system
 func (logic *userLogic) Signup(ctx context.Context, create model.SignupInput) (*model.AuthPayload, error) {
 	user := signupToUser(create)
 	err := logic.NewUser(ctx, user)
 	if err != nil {
 		return nil, err
 	}
-	//create a login token for the user
+	//create a login token for the userdao
 	token, err := logic.storage.Token.NewToken(ctx, models.Token{User: user.User})
 	if err != nil {
 		return nil, err
@@ -209,7 +209,7 @@ func (logic *userLogic) Signup(ctx context.Context, create model.SignupInput) (*
 	}, nil
 }
 
-// NewUser create a new user
+// NewUser create a new userdao
 func (logic *userLogic) NewUser(ctx context.Context, create *models.PrivateUserStruct) error {
 	if err := validateUser(create); err != nil {
 		return err
@@ -238,10 +238,10 @@ func (logic *userLogic) NewUser(ctx context.Context, create *models.PrivateUserS
 	create.Password = HashAndSalt(create.Password)
 	create.User.CreatedAt = time.Now()
 
-	// create a new user
+	// create a new userdao
 	err = logic.storage.Users.CreateNewUser(ctx, create)
 	if err != nil {
-		return errors.SomethingBadHappened("failed to make user", err)
+		return errors.SomethingBadHappened("failed to make userdao", err)
 	}
 
 	// do we also need to create the company?

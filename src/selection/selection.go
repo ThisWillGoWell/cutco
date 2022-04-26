@@ -63,8 +63,8 @@ type selects struct {
 //}
 //
 //func selections(field *ast.Field) selects {
-//	user := model.User{}
-//	b, _ := json.Marshal(user)
+//	userdao := model.User{}
+//	b, _ := json.Marshal(userdao)
 //	output := map[string]interface{}{}
 //	_ = json.Unmarshal(b, &output)
 //
@@ -140,7 +140,7 @@ func userPrivateSelect(field *ast.Field) *UserPrivate {
 	for _, selectionSet := range field.SelectionSet {
 		selection := selectionSet.(*ast.Field)
 		switch selection.Name {
-		case "user":
+		case "userdao":
 			selects.User = userSelections(selection)
 		case "email":
 			selects.SelectEmail = true
@@ -158,7 +158,7 @@ func chatMessageSelection(field *ast.Field) *ChatMessage {
 	for _, selectionSet := range field.SelectionSet {
 		selection := selectionSet.(*ast.Field)
 		switch selection.Name {
-		case "user":
+		case "userdao":
 			selects.UserSelects = userSelections(selection)
 		}
 	}
@@ -214,7 +214,7 @@ func transactionsSelections(field *ast.Field) *Transaction {
 		switch selection.Name {
 		case "value", "count", "time":
 			selects.SelectInfo = true
-		case "user":
+		case "userdao":
 			selects.User = userSelections(selection)
 		}
 	}

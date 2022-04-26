@@ -20,7 +20,7 @@ var (
 	NotAllowed = fmt.Errorf("nope, cant do that")
 )
 
-// get all the messages for a user since a timestamp
+// get all the messages for a userdao since a timestamp
 func (chat *chatLogic) Chats(ctx context.Context, input *model.ReadChatMessagesInput) ([]*model.ChatChannel, error) {
 
 	chats, err := chat.ChatStructs(ctx, selection.ChatChannelSelects(ctx), input)
@@ -59,9 +59,9 @@ func (chat *chatLogic) ChatStructs(ctx context.Context, selection selection.Chat
 	}
 
 	requset.RequestingID = userID
-	// either read info for a single channel or for all channels the user is apart of
+	// either read info for a single channel or for all channels the userdao is apart of
 	if requset.ChannelID != "" {
-		// check the user is part of the requested channel
+		// check the userdao is part of the requested channel
 		allowed, err := chat.storage.Chat.UserPartOfChatGroup(ctx, userID, requset.ChannelID)
 		if err != nil {
 			return nil, err
@@ -131,9 +131,9 @@ func (chat *chatLogic) sendWhisperMessage(ctx context.Context, toUserID string, 
 	})
 	if err != nil {
 		if err == storage.NoEntriesFound {
-			return errors.InvalidInputError("userID", "invalid user-id")
+			return errors.InvalidInputError("userID", "invalid userdao-id")
 		}
-		return errors.SomethingBadHappened("could not load to user", err)
+		return errors.SomethingBadHappened("could not load to userdao", err)
 	}
 
 	message.Channel, err = chat.createOrLoadWhisperChatChannel(ctx, message.Owner.ID, toUserID)
@@ -189,7 +189,7 @@ func (chat *chatLogic) createOrLoadWhisperChatChannel(ctx context.Context, fromI
 
 func (chat *chatLogic) saveChatMessage(ctx context.Context, message *models.ChatMessage) (*model.ChatMessage, error) {
 	// load chat messages
-	// ensure user is part of group
+	// ensure userdao is part of group
 	userID, ok := starketext.AuthenticatedID(ctx)
 	if !ok {
 		return nil, errors.MissingAuthentication

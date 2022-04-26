@@ -17,9 +17,9 @@ type Query {
     users(input:GetUsersInput): [User!]
 
     """
-    Load comapny by ID, must provide CompanyID in input
+    Load challenge by ID, must provide CompanyID in input
     """
-    company(input: GetCompanyInput!): Company
+    eventFeed(input: GetCompanyInput!): Company
 
     """
     Load many companines by IDs, no input will reutrn all companies
